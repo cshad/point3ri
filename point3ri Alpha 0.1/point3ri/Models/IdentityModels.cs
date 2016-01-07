@@ -21,7 +21,7 @@ namespace point3ri.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MVC_Pringup", throwIfV1Schema: false)
         {
         }
 
