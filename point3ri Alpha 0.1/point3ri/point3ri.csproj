@@ -181,12 +181,12 @@
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\KategorijaOpreme_Prostorije.cs" />
+    <Compile Include="Models\KategorijaOpreme.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MVC_Pringup.cs" />
     <Compile Include="Models\Oprema.cs" />
     <Compile Include="Models\PrijavaLosegStanjaOpreme.cs" />
-    <Compile Include="Models\Prostorije.cs" />
+    <Compile Include="Models\Prostorija.cs" />
     <Compile Include="Models\Rezervacija.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\VrijemeTermina.cs" />

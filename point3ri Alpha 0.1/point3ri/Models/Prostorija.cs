@@ -6,13 +6,13 @@ namespace point3ri.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Prostorije")]
-    public partial class Prostorije
+    [Table("Prostorija")]
+    public partial class Prostorija
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Prostorije()
+        public Prostorija()
         {
-            KategorijaOpreme_Prostorije = new HashSet<KategorijaOpreme_Prostorije>();
+            Opremas = new HashSet<Oprema>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -21,7 +21,9 @@ namespace point3ri.Models
         [StringLength(255)]
         public string Naziv { get; set; }
 
+        public bool? Dostupnost { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KategorijaOpreme_Prostorije> KategorijaOpreme_Prostorije { get; set; }
+        public virtual ICollection<Oprema> Opremas { get; set; }
     }
 }

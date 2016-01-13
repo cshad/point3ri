@@ -12,7 +12,6 @@ namespace point3ri.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Oprema()
         {
-            KategorijaOpreme_Prostorije = new HashSet<KategorijaOpreme_Prostorije>();
             Rezervacijas = new HashSet<Rezervacija>();
         }
 
@@ -24,8 +23,16 @@ namespace point3ri.Models
 
         public int? VrijemeTerminaID { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KategorijaOpreme_Prostorije> KategorijaOpreme_Prostorije { get; set; }
+        public int? KategorijaOpremeID { get; set; }
+
+        [StringLength(255)]
+        public string InventarskiBroj { get; set; }
+
+        public int? ProstorijaID { get; set; }
+
+        public virtual KategorijaOpreme KategorijaOpreme { get; set; }
+
+        public virtual Prostorija Prostorija { get; set; }
 
         public virtual VrijemeTermina VrijemeTermina { get; set; }
 

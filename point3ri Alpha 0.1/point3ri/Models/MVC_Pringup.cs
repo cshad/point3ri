@@ -16,10 +16,10 @@ namespace point3ri.Models
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<KategorijaOpreme_Prostorije> KategorijaOpreme_Prostorije { get; set; }
+        public virtual DbSet<KategorijaOpreme> KategorijaOpremes { get; set; }
         public virtual DbSet<Oprema> Opremas { get; set; }
         public virtual DbSet<PrijavaLosegStanjaOpreme> PrijavaLosegStanjaOpremes { get; set; }
-        public virtual DbSet<Prostorije> Prostorijes { get; set; }
+        public virtual DbSet<Prostorija> Prostorijas { get; set; }
         public virtual DbSet<Rezervacija> Rezervacijas { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<VrijemeTermina> VrijemeTerminas { get; set; }
@@ -49,10 +49,9 @@ namespace point3ri.Models
                 .HasForeignKey(e => e.KorisnikID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Prostorije>()
-                .HasMany(e => e.KategorijaOpreme_Prostorije)
-                .WithOptional(e => e.Prostorije)
-                .HasForeignKey(e => e.ProstorijaID);
+            modelBuilder.Entity<KategorijaOpreme>()
+                .Property(e => e.NazivKategorije)
+                .IsUnicode(false);
         }
     }
 }
