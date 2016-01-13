@@ -1,9 +1,9 @@
 v0.25:
-
+- updejtana baza
 
 v0.2:
-spajanje na bazu preko ado net "code first" modela
-svi fajlovi account managementa ažurirani da koriste bazu
+- spajanje na bazu preko ado net "code first" modela
+- svi fajlovi account managementa ažurirani da koriste bazu
 
 v0.1:
-bazični projekt
+- bazični projekt
