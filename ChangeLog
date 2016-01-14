@@ -1,0 +1,16 @@
+0.3:
+- Dodan admin page
+- Zahtjevi za šifru updejtani (šifra se sastoji od minimalno 6 znakova)
+- Admin page link smiju koristiti samo admini
+- Prijevodi na hrvatski
+- Update partial layouta za Admin area
+
+v0.25:
+- updejtana baza
+
+v0.2:
+- spajanje na bazu preko ado net "code first" modela
+- svi fajlovi account managementa ažurirani da koriste bazu
+
+v0.1:
+- bazični projekt
