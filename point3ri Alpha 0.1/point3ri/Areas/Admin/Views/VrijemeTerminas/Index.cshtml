@@ -1,0 +1,51 @@
+﻿@model IEnumerable<point3ri.Models.VrijemeTermina>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NazivOpreme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PocetakRadnogVremena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KrajRadnogVremena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VremenskiIntervali)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazivOpreme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PocetakRadnogVremena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KrajRadnogVremena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VremenskiIntervali)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

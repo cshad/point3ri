@@ -1,0 +1,74 @@
+﻿@model point3ri.Models.Rezervacija
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rezervacija</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oprema.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oprema.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Termin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Termin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prostorija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prostorija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RedniBrojOpreme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RedniBrojOpreme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrijemeRezervacija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrijemeRezervacija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrijemeOdjaveRezervacije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrijemeOdjaveRezervacije)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

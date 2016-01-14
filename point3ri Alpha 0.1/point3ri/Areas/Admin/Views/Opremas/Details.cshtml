@@ -1,0 +1,58 @@
+﻿@model point3ri.Models.Oprema
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Oprema</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KategorijaOpreme.NazivKategorije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategorijaOpreme.NazivKategorije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prostorija.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prostorija.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrijemeTermina.NazivOpreme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrijemeTermina.NazivOpreme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InventarskiBroj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InventarskiBroj)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

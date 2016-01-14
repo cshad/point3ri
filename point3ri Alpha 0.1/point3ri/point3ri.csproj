@@ -169,6 +169,16 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AspNetRolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AspNetUsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KategorijaOpremesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OpremasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PrijavaLosegStanjaOpremesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProstorijasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RezervacijasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VrijemeTerminasController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,6 +212,50 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Opremas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Opremas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Opremas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Opremas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Opremas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KategorijaOpremes\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KategorijaOpremes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KategorijaOpremes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KategorijaOpremes\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KategorijaOpremes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Prostorijas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Prostorijas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Prostorijas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Prostorijas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Prostorijas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VrijemeTerminas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\VrijemeTerminas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\VrijemeTerminas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\VrijemeTerminas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\VrijemeTerminas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Rezervacijas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Rezervacijas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Rezervacijas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Rezervacijas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Rezervacijas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoles\Index.cshtml" />
     <None Include="Properties\PublishProfiles\point3ri - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -252,6 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
