@@ -1,3 +1,10 @@
+0.3:
+- Dodan admin page
+- Zahtjevi za šifru updejtani (šifra se sastoji od minimalno 6 znakova)
+- Admin page link smiju koristiti samo admini
+- Prijevodi na hrvatski
+- Update partial layouta za Admin area
+
 v0.25:
 - updejtana baza
 
