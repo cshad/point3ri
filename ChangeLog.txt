@@ -1,3 +1,6 @@
+﻿0.4:
+- vizualne promjene
+
 0.3:
 - Dodan admin page
 - Zahtjevi za šifru updejtani (šifra se sastoji od minimalno 6 znakova)
