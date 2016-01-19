@@ -1,0 +1,70 @@
+﻿@model IEnumerable<point3ri_Alpha_0._51.Models.Rezervacija>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DanTermini.Termin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oprema.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumRezervacije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProstorijaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VrijemeRezerviranja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RezervacijaAktivna)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DanTermini.Termin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oprema.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumRezervacije)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProstorijaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VrijemeRezerviranja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RezervacijaAktivna)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
