@@ -242,11 +242,16 @@
     <Content Include="Content\Tema\img\image-post-header-01.jpg" />
     <Content Include="Content\Tema\img\image-post-header-02.jpg" />
     <Content Include="Content\Tema\img\image-post-header-03.jpg" />
+    <Content Include="Content\Tema\img\lph.PNG" />
     <Content Include="Content\Tema\img\map.png" />
     <Content Include="Content\Tema\img\partner01.png" />
     <Content Include="Content\Tema\img\partner02.png" />
+    <Content Include="Content\Tema\img\pth.jpg" />
+    <Content Include="Content\Tema\img\pth.PNG" />
     <Content Include="Content\Tema\img\read_more.png" />
     <Content Include="Content\Tema\img\table-tennis.jpg" />
+    <Content Include="Content\Tema\img\tt.jpg" />
+    <Content Include="Content\Tema\img\tth.jpg" />
     <Content Include="Content\Tema\js\bootstrap.js" />
     <Content Include="Content\Tema\js\bootstrap.min.js" />
     <Content Include="Content\Tema\js\demo.js" />
