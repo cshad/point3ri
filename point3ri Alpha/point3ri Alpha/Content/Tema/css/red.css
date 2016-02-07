@@ -1,0 +1,369 @@
+/*
+	========================================
+	DANISH - RESPONSIVE BLOG TEMPLATE
+	========================================
+	
+	@author			: Templateninja
+	@version		: v1.1
+	@date-create	: 05/18/2014
+	@last-update	: 09/27/2014
+	@file-name		: red
+
+*/
+
+/*
+	========================================
+	TABLE OF CONTENT
+	========================================
+	
+	[1. GLOBAL STYLE]
+	[2. NAVBAR]
+	[3. FEATURED]
+	[4. CONTENT]
+	[5. COMMENT]
+	[6. PAGING]
+	[7. SIDEBAR]
+	[8. PORTFOLIO]
+	[9. FOOTER]
+	[10. RESPONSIVE]
+
+*/
+
+
+/* 
+	==================
+	[1. GLOBAL STYLE]
+	==================
+*/
+::-moz-selection { 
+	color: #fff; 
+	text-shadow: none; 
+	background: #da4453; 
+}
+
+::-webkit-selection { 
+	color: #fff; 
+	text-shadow: none; 
+	background: #da4453; 
+}
+
+::selection { 
+	color: #fff; 
+	text-shadow: none; 
+	background: #da4453; 
+}
+
+a{
+	color: #ed5565;
+}
+
+a:hover{
+	color: #da4453;
+}
+
+.btn-danish{
+	color: #fff;
+	background-color: #ed5565;
+	border-color: #da4453;
+}
+
+.btn-danish:hover,
+.btn-danish:focus,
+.btn-danish:active,
+.btn-danish.active,
+.open > .dropdown-toggle.btn-danish{
+	color: #fff;
+	background-color: #da4453;
+	border-color: #da4453;
+}
+
+.btn-danish:active,
+.btn-danish.active,
+.open > .dropdown-toggle.btn-danish{
+	background-image: none;
+}
+
+.btn-danish.disabled,
+.btn-danish[disabled],
+fieldset[disabled] .btn-danish,
+.btn-danish.disabled:hover,
+.btn-danish[disabled]:hover,
+fieldset[disabled] .btn-danish:hover,
+.btn-danish.disabled:focus,
+.btn-danish[disabled]:focus,
+fieldset[disabled] .btn-danish:focus,
+.btn-danish.disabled:active,
+.btn-danish[disabled]:active,
+fieldset[disabled] .btn-danish:active,
+.btn-danish.disabled.active,
+.btn-danish[disabled].active,
+fieldset[disabled] .btn-danish.active{
+	background-color: #da4453;
+	border-color: #da4453;
+}
+
+.btn-danish .badge{
+	color: #ed5565;
+	background-color: #fff;
+}
+
+
+/* 
+	==================
+	[2. NAVBAR]
+	==================
+*/
+.navbar-default .navbar-brand{
+	color: #ed5565;
+}
+
+.navbar-default .navbar-brand:hover{
+	color: #da4453;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+	color: #ed5565;
+}
+
+.navbar-default .navbar-nav li.dropdown.open > a,
+.navbar-default .navbar-nav li.dropdown.open > a:hover{
+	background-color: #ed5565;
+}
+
+.dropdown-menu {
+	background-color: #ed5565;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > .active > a:hover{
+	background-color: #da4453;
+}
+
+.navbar-transparent .navbar-brand:hover{
+	color: #ed5565;
+}
+
+.navbar-transparent .navbar-nav > .active > a,
+.navbar-transparent .navbar-nav > .active > a:hover,
+.navbar-transparent .navbar-nav > .active > a:focus{
+	color: #fff;
+}
+
+.navbar-transparent .navbar-nav li.dropdown.open > a,
+.navbar-transparent .navbar-nav li.dropdown.open > a:hover{
+	background-color: #0f101a;
+}
+
+.navbar-transparent .dropdown-menu > li > a:hover,
+.navbar-transparent .dropdown-menu > li > a:focus,
+.navbar-transparent .dropdown-menu > .active > a,
+.navbar-transparent .dropdown-menu > .active > a:hover,
+.navbar-transparent .dropdown-menu > .active > a:focus{
+	color: #ed5565;
+	background-color: #1d1f2c;
+}
+
+
+/* 
+	==================
+	[3. FEATURED]
+	==================
+*/
+.featured-container .featured-img h3 a{
+	background-color: #ed5565;
+}
+
+.featured-container .featured-img h3 a:hover{
+	background-color: #da4453;
+}
+
+.featured-container .featured-img.featured-img-avatar h3{
+	background-color: #ed5565;
+}
+
+
+/* 
+	==================
+	[4. CONTENT]
+	==================
+*/
+.page-title h2::after{
+	content: '';
+	background-color: #ed5565;
+}
+
+.post-atribut a:hover,
+.post-atribut a:focus,
+.post-atribut a:hover .fa,
+.post-atribut a:focus .fa
+.post-atribut a:hover .glyphicon,
+.post-atribut a:focus .glyphicon{
+	color: #ed5565;
+}
+
+.post-content blockquote{
+	position: relative;
+	border-left: none;
+	background-color: #ed5565;
+	color: #fff;
+	border-radius: 2px;
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+.post-content blockquote::before{
+	color: #da4453;
+}
+
+.post-link a:hover > span{ 
+	color: #ed5565
+}
+
+
+/* 
+	==================
+	[5. COMMENT]
+	==================
+*/
+.comment-form .form-control:focus{
+	background: #ed5565;
+	border-color: #da4453;
+	color: #fff;
+}
+
+
+/* 
+	==================
+	[6. PAGING]
+	==================
+*/
+.pager > li > a:hover,
+.pager > li > a:focus{
+	background-color: #ed5565;
+	border-color: #da4453;
+	color: #fff;
+}
+
+.pagination > .active > a, 
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus{
+	background-color: #ed5565;
+	border-color: #ed5565;
+}
+
+
+/* 
+	==================
+	[7. SIDEBAR]
+	==================
+*/
+.sidebar .widget_categories  ul > li > a:hover,
+.sidebar .widget_archive  ul > li > a:hover {
+	color: #da4453;
+}
+
+.sidebar .widget-sidebar.default_widget > ul > li > a:hover,
+.sidebar .widget-sidebar.default_widget > ul > li > a:focus{
+	color: #da4453;
+}
+
+
+/* 
+	==================
+	[8. PORTFOLIO]
+	==================
+*/
+#portfolio.portfolio-page .portfolio-sort > li > a {
+	border: 1px solid #ed5565;
+	color: #da4453;
+}
+
+#portfolio.portfolio-page .portfolio-sort > .active > a,
+#portfolio.portfolio-page .portfolio-sort > .active > a:hover,
+#portfolio.portfolio-page .portfolio-sort > .active > a:focus {
+	color: #fff;
+	background-color: #da4453;
+}
+
+#portfolio .container-portfolio > li:nth-child(even) > .portfolio-item > .portfolio-caption{
+	background-color: rgba(237,85,101,.85);
+}
+
+
+/* 
+	==================
+	[9. FOOTER]
+	==================
+*/
+#footer .widget ul > li > a{
+	color: #ed5565;
+}
+
+#footer .widget ul > li > a:hover:before{
+	color: #ed5565;
+}
+
+
+/* 
+	==================
+	[10. RESPONSIVE]
+	==================
+*/
+@media screen and (max-width: 767px){
+	/* navbar */
+	.navbar-default .navbar-nav li.dropdown.open > a,
+	.navbar-default .navbar-nav li.dropdown.open > a:hover{
+		color: #fff;
+		background-color: #da4453;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, 
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, 
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #fff;
+		background-color: #da4453;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+		color: #fff;
+		background-color: #da4453; 
+	}
+
+	.navbar-transparent .navbar-nav > li > a:hover::before,
+	.navbar-transparent .navbar-nav > li > a:focus::before{
+		content: '';
+		border-bottom: none;
+	}
+
+	.navbar-transparent .navbar-nav li.dropdown.open > a,
+	.navbar-transparent .navbar-nav li.dropdown.open > a:hover{
+		color: #ed5565;
+		background-color: #1d1f2c;
+	}
+
+	.navbar-transparent .navbar-nav > .active > a,
+	.navbar-transparent .navbar-nav > .active > a:hover,
+	.navbar-transparent .navbar-nav > .active > a:focus{
+		color: #ed5565;
+	}
+
+	.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a, 
+	.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a:hover, 
+	.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #ed5565;
+		background-color: #1d1f2c;
+	}
+
+	.navbar-transparent .navbar-nav .open .dropdown-menu > li > a:hover {
+		color: #ed5565;
+		background-color: #1d1f2c; 
+	}
+}

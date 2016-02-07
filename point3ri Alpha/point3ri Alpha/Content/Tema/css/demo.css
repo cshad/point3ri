@@ -1,0 +1,109 @@
+/*
+	========================================
+	DANISH - RESPONSIVE BLOG TEMPLATE
+	========================================
+	
+	@author			: Templateninja
+	@version		: v1.1
+	@date-create	: 05/18/2014
+	@last-update	: 09/27/2014
+	@file-name		: style
+
+*/
+
+.demo-btn{
+	position: fixed;
+	z-index: 5;
+	left: -1px;
+	top: 200px;
+	width: 38px;
+	height: 40px;
+	border: 1px solid #ddd;
+	border-left: none;
+	background-color: #fff;
+	text-align: center;
+	font-size: 20px;
+	line-height: 38px;
+	-webkit-border-radius: 0 3px 3px 0;
+	   -moz-border-radius: 0 3px 3px 0;
+		-ms-border-radius: 0 3px 3px 0;
+		 -o-border-radius: 0 3px 3px 0;
+			border-radius: 0 3px 3px 0;
+}
+
+.demo-container{
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 242px;
+	background-color: #fff;
+	width: 138px;
+	height: 150px;
+	padding: 0;
+	margin: 0;
+	border: 2px solid #ddd;
+	border-left: none;
+	-webkit-border-radius: 0 3px 3px 0;
+	   -moz-border-radius: 0 3px 3px 0;
+		-ms-border-radius: 0 3px 3px 0;
+		 -o-border-radius: 0 3px 3px 0;
+			border-radius: 0 3px 3px 0;
+}
+
+.demo-container h4{
+	margin: 20px 20px 0;
+	padding: 0;
+	color: #434a54;
+	font-size: 11px;
+	line-height: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.demo-container ul{
+	margin: 20px 20px 20px 20px;
+	padding: 0;
+	list-style-type: none;
+}
+
+.demo-container ul > li{
+	float: left;
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-color: #fff;
+	border: 2px solid #fff;
+	border-bottom: 1px solid #fff;
+	border-left: none;
+}
+
+.demo-btn:hover,
+.demo-container ul > li:hover{
+	cursor: pointer;
+}
+
+.demo-container ul > .color-orange{
+	background-color: #fc6e51;
+}
+
+.demo-container ul > .color-green{
+	background-color: #5cb85c;
+}
+
+.demo-container ul > .color-yellow{
+	background-color: #f0ad4e;
+}
+
+.demo-container ul > .color-red{
+	background-color: #ed5565;
+}
+
+.demo-container ul > .color-blue{
+	background-color: #5bc0de;
+}
+
+.demo-container ul > .color-pink{
+	background-color: #ec87c0;
+}
