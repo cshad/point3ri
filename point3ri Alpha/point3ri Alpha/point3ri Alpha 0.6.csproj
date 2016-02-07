@@ -226,6 +226,7 @@
     <Content Include="Content\Tema\img\author-avatar.jpg" />
     <Content Include="Content\Tema\img\avatar.png" />
     <Content Include="Content\Tema\img\danish-avatar.jpg" />
+    <Content Include="Content\Tema\img\favicon.ico" />
     <Content Include="Content\Tema\img\favicon.png" />
     <Content Include="Content\Tema\img\image-portfolio-01.jpg" />
     <Content Include="Content\Tema\img\image-portfolio-02.jpg" />
@@ -245,6 +246,7 @@
     <Content Include="Content\Tema\img\partner01.png" />
     <Content Include="Content\Tema\img\partner02.png" />
     <Content Include="Content\Tema\img\read_more.png" />
+    <Content Include="Content\Tema\img\table-tennis.jpg" />
     <Content Include="Content\Tema\js\bootstrap.js" />
     <Content Include="Content\Tema\js\bootstrap.min.js" />
     <Content Include="Content\Tema\js\demo.js" />
