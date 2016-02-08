@@ -67,6 +67,7 @@ namespace point3ri_Alpha_0._51.Models
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@vern.hr$", ErrorMessage = "Registracija samo sa vernovim emailom (korisnik@vern.hr).")]
         public string Email { get; set; }
 
         [Required]
