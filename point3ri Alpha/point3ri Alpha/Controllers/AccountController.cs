@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using point3ri_Alpha_0._51.Models;
+using System.Net.Mail;
 
 namespace point3ri_Alpha_0._51.Controllers
 {
@@ -151,7 +152,11 @@ namespace point3ri_Alpha_0._51.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                // Creating username from e-mail
+                MailAddress addr = new MailAddress(model.Email);
+                string username = addr.User;
+
+                var user = new ApplicationUser { UserName = username, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
