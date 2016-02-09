@@ -85,16 +85,31 @@ namespace point3ri_Alpha_0._51.Controllers
         // POST: Rezervacijas/CreateRacunala
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateRacunala([Bind(Include = "DatumRezervacije,DanTerminiID,OpremaID,ProstorijaID")] Rezervacija rezervacija)
+        public ActionResult CreateRacunala([Bind(Include = "DatumRezervacije,DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int Trajanje)
         {
+            var duration = Trajanje;
 
             rezervacija.KorisnikID = User.Identity.GetUserId();
             rezervacija.VrijemeRezerviranja = DateTime.Now;
             rezervacija.RezervacijaAktivna = true;
             if (ModelState.IsValid)
             {
-                db.Rezervacijas.Add(rezervacija);
-                db.SaveChanges();
+                // dodati validaciju?
+                if (duration > 0 && rezervacija.DanTerminiID < 144 - duration)
+                {
+                    int start = rezervacija.DanTerminiID.Value;
+                    for (int i = start; i <= start + duration; i++)
+                    {
+                        db.Rezervacijas.Add(rezervacija);
+                        db.SaveChanges();
+                        rezervacija.DanTerminiID += 1;
+                    }
+                }
+                else
+                {
+                    db.Rezervacijas.Add(rezervacija);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index", "Home");
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
