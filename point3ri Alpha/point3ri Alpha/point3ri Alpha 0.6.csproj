@@ -205,6 +205,8 @@
     <Content Include="Content\Tema\css\bootstrap.min.css" />
     <Content Include="Content\Tema\css\font-awesome.css" />
     <Content Include="Content\Tema\css\font-awesome.min.css" />
+    <Content Include="Content\Tema\css\gallery.min.css" />
+    <Content Include="Content\Tema\css\gallery.theme.css" />
     <Content Include="Content\Tema\css\red.css" />
     <Content Include="Content\Tema\css\responsive.css" />
     <Content Include="Content\Tema\css\responsive.min.css" />

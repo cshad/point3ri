@@ -25,6 +25,8 @@
     <link href="~/Content/Tema/css/responsive.min.css" rel="stylesheet">
     <link href="~/Content/Tema/css/red.css" rel="stylesheet" id="color-style">
 
+    <link rel="stylesheet" href="~/Content/Tema/css/gallery.theme.css">
+    <link rel="stylesheet" href="~/Content/Tema/css/gallery.min.css">
 
 </head>
 <body>
@@ -66,64 +68,91 @@
         </div><!-- /.container-fluid -->
     </nav>
     <!-- end:navbar -->
-    <!-- begin:header -->
-    <section id="header" style="background-image: url(/Content/Tema/img/tt.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <blockquote>
-                        <p>Rezervacija termina za stolni tenis</p>
-                        <small>Slobodno stolova: 2</small>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-        <div class="overlay"></div>
 
-    </section>
-    <!-- end:header -->
-    <!-- begin:featured -->
-    <div id="featured">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-title">
-                        <h2>Oprema</h2>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="featured-container">
-                        <div class="featured-img">
-                            <img src="~/Content/Tema/img/tth.jpg" @*alt="image post category danish"*@>
-                            <h3><a href="#">Stolni tenis</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="featured-container">
-                        <div class="featured-img">
-                            <img src="~/Content/Tema/img/lph.png" @*alt="image post category danish"*@>
-                            <h3><a href="#">Računala</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="featured-container">
-                        <div class="featured-img">
-                            <img src="~/Content/Tema/img/pth.jpg" @*alt="image post category danish"*@>
-                            <h3><a href="#">Printeri</a></h3>
-                        </div>
+    <!--Slideshow-->
+    @*<div class="gallery autoplay items-3">
+        <div id="item-1" class="control-operator"></div>
+        <div id="item-2" class="control-operator"></div>
+        <div id="item-3" class="control-operator"></div>
+
+        <figure class="item">
+            <h1>1</h1>
+        </figure>
+
+        <figure class="item">
+            <h1>2</h1>
+        </figure>
+
+        <figure class="item">
+            <h1>3</h1>
+        </figure>
+
+        <div class="controls">
+            <a href="#item-1" class="control-button">•</a>
+            <a href="#item-2" class="control-button">•</a>
+            <a href="#item-3" class="control-button">•</a>
+        </div>
+    </div>
+
+
+        <!-- begin:header -->
+        <section id="header" style="background-image: url(/Content/Tema/img/tt.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <blockquote>
+                            <p>Rezervacija termina za stolni tenis</p>
+                            <small>Slobodno stolova: 2</small>
+                        </blockquote>
                     </div>
                 </div>
             </div>
+            <div class="overlay"></div>
+
+        </section>
+        <!-- end:header -->
+        <!-- begin:featured -->
+        <div id="featured">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-title">
+                            <h2>Oprema</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="featured-container">
+                            <div class="featured-img">
+                                <img src="~/Content/Tema/img/tth.jpg" @*alt="image post category danish"*@>
+                                <h3><a href="#">Stolni tenis</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="featured-container">
+                            <div class="featured-img">
+                                <img src="~/Content/Tema/img/lph.png" @*alt="image post category danish"*@>
+                                <h3><a href="#">Računala</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="featured-container">
+                            <div class="featured-img">
+                                <img src="~/Content/Tema/img/pth.jpg" @*alt="image post category danish"*@>
+                                <h3><a href="#">Printeri</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- end:featured -->
+        <!-- end:featured -->
 
 
-    <div>
-        @RenderBody()
-    </div>
+        <div>
+            @RenderBody()
+        </div>
 
 
 </body>
