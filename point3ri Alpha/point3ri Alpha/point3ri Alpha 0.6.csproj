@@ -230,6 +230,9 @@
     <Content Include="Content\Tema\img\pth.PNG" />
     <Content Include="Content\Tema\img\rkt.jpg" />
     <Content Include="Content\Tema\img\table-tennis.jpg" />
+    <Content Include="Content\Tema\img\team.jpg" />
+    <Content Include="Content\Tema\img\to1.JPG" />
+    <Content Include="Content\Tema\img\to21.JPG" />
     <Content Include="Content\Tema\img\tt.jpg" />
     <Content Include="Content\Tema\img\tth.jpg" />
     <Content Include="Content\Tema\js\bootstrap.js" />
