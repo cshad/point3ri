@@ -216,6 +216,7 @@
     <Content Include="Content\Tema\css\font-awesome.min.css" />
     <Content Include="Content\Tema\css\gallery.min.css" />
     <Content Include="Content\Tema\css\gallery.theme.css" />
+    <Content Include="Content\Tema\img\IMG_0937.jpg" />
     <Content Include="Content\Tema\css\red.css" />
     <Content Include="Content\Tema\css\responsive.css" />
     <Content Include="Content\Tema\css\responsive.min.css" />
@@ -226,6 +227,7 @@
     <Content Include="Content\Tema\img\favicon.ico" />
     <Content Include="Content\Tema\img\lph.jpg" />
     <Content Include="Content\Tema\img\map.png" />
+    <Content Include="Content\Tema\img\printerh.jpg" />
     <Content Include="Content\Tema\img\pth1.jpg" />
     <Content Include="Content\Tema\img\rkt.jpg" />
     <Content Include="Content\Tema\img\table-tennis.jpg" />
