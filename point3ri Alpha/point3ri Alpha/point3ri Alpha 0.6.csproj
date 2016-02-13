@@ -214,8 +214,12 @@
     <Content Include="Content\Tema\css\bootstrap.min.css" />
     <Content Include="Content\Tema\css\font-awesome.css" />
     <Content Include="Content\Tema\css\font-awesome.min.css" />
+    <Content Include="Content\Tema\css\gallery.css" />
     <Content Include="Content\Tema\css\gallery.min.css" />
+    <Content Include="Content\Tema\css\gallery.prefixed.css" />
+    <Content Include="Content\Tema\css\gallery.prefixed.min.css" />
     <Content Include="Content\Tema\css\gallery.theme.css" />
+    <Content Include="Content\Tema\css\normalize.css" />
     <Content Include="Content\Tema\img\IMG_0937.jpg" />
     <Content Include="Content\Tema\css\red.css" />
     <Content Include="Content\Tema\css\responsive.css" />
@@ -313,6 +317,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\prefixfree.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
