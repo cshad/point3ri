@@ -5,15 +5,12 @@
     Layout = null;
 }
 
-@Html.DropDownListFor(dat => dat.DatumiList, Model.DatumiIEnum, null, htmlAttributes: new { @id = "Datum-DropdownID", @class = "form-control" })
+@Html.DropDownListFor(dat => dat.DatumiList, Model.DatumiIEnum, null, htmlAttributes: new { @datetime = "Datum-DropdownDate option:selected", @class = "form-control" })
 
 <script type="text/javascript">
             $(function () {
-                $('#Datum-DropdownID').change(function () {
-                    var selectedDatumRezervacije = new Date(dat.selectedDatumRezervacije);
-                    var selectedOpremaID = $('#Oprema-DropdownID option:selected').val();
-
-                    $('#DanTerminiContainer').load('@Url.Action("DanTerminView")');
+                $('#Datum-DropdownDate').change(function () {
+                    var selectedDatumRezervacije = this.value;
                 });
             });
 </script>

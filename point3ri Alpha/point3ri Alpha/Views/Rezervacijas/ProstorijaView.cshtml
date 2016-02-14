@@ -13,7 +13,8 @@
         // Popuni opremu
         $('#Prostorija-DropdownID').change(function () {
             var selectedProstorijaID = this.value;
-            $('#OpremaContainer').load('@Url.Action("OpremaView")?ProstorijaID=' + selectedProstorijaID);            
+            $('#OpremaContainer').load('@Url.Action("OpremaView")?ProstorijaID=' + selectedProstorijaID);
+
         });
     });
 </script>

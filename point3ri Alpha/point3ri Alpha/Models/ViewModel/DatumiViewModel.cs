@@ -10,7 +10,7 @@ namespace point3ri_Alpha_0._51.Models.ViewModel
     public class DatumiViewModel
     {
         public List<DateTime> DatumiList = new List<DateTime>();
-        public int SelectedDatumID { get; set; }
+        public int SelectedDatumRezervacije { get; set; }
         public IEnumerable<SelectListItem> DatumiIEnum
         {
             get

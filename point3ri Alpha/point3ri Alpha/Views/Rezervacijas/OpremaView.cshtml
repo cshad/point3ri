@@ -5,14 +5,17 @@
     Layout = null;
 }
 
-@Html.DropDownList("OpremaID", Model.OpremaIEnum, "Odaberite opremu", htmlAttributes: new { @id = "Oprema-DropdownID", @class = "form-control" })
+@Html.DropDownList("OpremaID", Model.OpremaIEnum, "Odaberite opremu", htmlAttributes: new { @id = "OpremaID", @class = "form-control" })
 
 <script type="text/javascript">
     $(function () {
         // Popuni DanTermine
-        $('#Oprema-DropdownID').change(function () {           
-            var selectedDatumRezervacije = "2015-02-12";
+        $('#OpremaID').change(function () {           
+
+            var selectedDatumRezervacije = $("#Datum-DropdownDate option:selected").val();
+            
             var selectedOpremaID = this.value;
+            
             $('#DanTerminiContainer').load('@Url.Action("DanTerminView")?DatumRezervacije=' + selectedDatumRezervacije + '&OpremaID=' + selectedOpremaID);
         });
     });
