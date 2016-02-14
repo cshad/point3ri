@@ -1,0 +1,20 @@
+﻿@model point3ri_Alpha_0._51.Models.ViewModel.ProstorijaViewModel
+
+@{
+    ViewBag.Title = "CreateRacunala";
+    Layout = null;
+}
+
+@Html.DropDownList("ProstorijaID",Model.ProstorijaIEnum, "Odaberite prostoriju", htmlAttributes: new { @id = "Prostorija-DropdownID", @class = "form-control" })
+
+
+<script type="text/javascript">
+    $(function () {
+        // Popuni opremu
+        $('#Prostorija-DropdownID').change(function () {
+            var selectedProstorijaID = this.value;
+            $('#OpremaContainer').load('@Url.Action("OpremaView")?ProstorijaID=' + selectedProstorijaID);
+
+        });
+    });
+</script>

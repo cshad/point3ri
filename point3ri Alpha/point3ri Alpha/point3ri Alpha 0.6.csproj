@@ -201,6 +201,11 @@
     <Compile Include="Models\Prostorija.cs" />
     <Compile Include="Models\Rezervacija.cs" />
     <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\ViewModel\DanTerminViewModel.cs" />
+    <Compile Include="Models\ViewModel\DatumiViewModel.cs" />
+    <Compile Include="Models\ViewModel\KategorijaOpremeViewModel.cs" />
+    <Compile Include="Models\ViewModel\OpremaViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProstorijaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -312,6 +317,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.11.4.ui.js" />
+    <Content Include="Scripts\jquery-1.11.4.ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -363,6 +370,10 @@
     <Content Include="Views\Rezervacijas\CreateRacunala.cshtml" />
     <Content Include="_Tema.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Rezervacijas\ProstorijaView.cshtml" />
+    <Content Include="Views\Rezervacijas\OpremaView.cshtml" />
+    <Content Include="Views\Rezervacijas\DanTerminView.cshtml" />
+    <Content Include="Views\Rezervacijas\DatumiView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

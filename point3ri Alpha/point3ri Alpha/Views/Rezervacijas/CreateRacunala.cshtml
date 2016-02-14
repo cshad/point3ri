@@ -1,5 +1,6 @@
 ﻿@model point3ri_Alpha_0._51.Models.Rezervacija
 
+
 @{
     ViewBag.Title = "CreateRacunala";
     Layout = "~/_Tema.cshtml";
@@ -21,15 +22,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DatumRezervacije, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DatumRezervacije, new { htmlAttributes = new { @class = "form-control" } })
+                <div id="DatumiContainer">
+                    @Html.Action("DatumiView")
+                </div>
                 @Html.ValidationMessageFor(model => model.DatumRezervacije, "", new { @class = "text-danger" })
             </div>
         </div>
+     
 
         <div class="form-group">
             @Html.LabelFor(model => model.ProstorijaID, "ProstorijaID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("ProstorijaID", null, htmlAttributes: new { @class = "form-control" })
+                <div id="ProstorijaContainer">
+                    @Html.Action("ProstorijaView")
+                </div>
                 @Html.ValidationMessageFor(model => model.ProstorijaID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,7 +43,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OpremaID, "OpremaID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("OpremaID", null, htmlAttributes: new { @class = "form-control" })
+                <div id="OpremaContainer">
+                    @Html.Action("OpremaView")
+                </div>
                 @Html.ValidationMessageFor(model => model.OpremaID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -45,27 +53,46 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DanTerminiID, "DanTerminiID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("DanTerminiID", null, htmlAttributes: new { @class = "form-control" })
+                <div id="DanTerminiContainer">
+                    @Html.Action("DanTerminView")
+                </div>
                 @Html.ValidationMessageFor(model => model.DanTerminiID, "", new { @class = "text-danger" })
             </div>
         </div>
 
-@{
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    listItems.Add(new SelectListItem
-    { Text = "5 minuta", Value = "0" });
-    listItems.Add(new SelectListItem
-    { Text = "10 minuta", Value = "1" });
-    listItems.Add(new SelectListItem
-    { Text = "15 minuta", Value = "2" });
-    listItems.Add(new SelectListItem
-    { Text = "30 minuta", Value = "5" });
-    listItems.Add(new SelectListItem
-    { Text = "45 minuta", Value = "8" });
-    listItems.Add(new SelectListItem
-    { Text = "60 minuta", Value = "11" });
-}
-
+        @{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem
+            {
+                Text = "5 minuta",
+                Value = "0"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "10 minuta",
+                Value = "1"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "15 minuta",
+                Value = "2"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "30 minuta",
+                Value = "5"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "45 minuta",
+                Value = "8"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "60 minuta",
+                Value = "11"
+            });
+        }
 
         <div class="form-group">
             @Html.Label("Trajanje", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -79,7 +106,6 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-
     </div>
             }
 

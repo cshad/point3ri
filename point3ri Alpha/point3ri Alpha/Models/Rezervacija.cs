@@ -32,6 +32,7 @@ namespace point3ri_Alpha_0._51.Models
         [Required]
         public int? OpremaID { get; set; }
 
+        [Required]
         public int? ProstorijaID { get; set; }
 
         public DateTime? VrijemeRezerviranja { get; set; }

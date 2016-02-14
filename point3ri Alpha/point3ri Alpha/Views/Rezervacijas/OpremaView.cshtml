@@ -1,0 +1,22 @@
+﻿@model point3ri_Alpha_0._51.Models.ViewModel.OpremaViewModel
+
+@{
+    ViewBag.Title = "CreateRacunala";
+    Layout = null;
+}
+
+@Html.DropDownList("OpremaID", Model.OpremaIEnum, "Odaberite opremu", htmlAttributes: new { @id = "OpremaID", @class = "form-control" })
+
+<script type="text/javascript">
+    $(function () {
+        // Popuni DanTermine
+        $('#OpremaID').change(function () {           
+
+            var selectedDatumRezervacije = $("#Datum-DropdownDate option:selected").val();
+            
+            var selectedOpremaID = this.value;
+            
+            $('#DanTerminiContainer').load('@Url.Action("DanTerminView")?DatumRezervacije=' + selectedDatumRezervacije + '&OpremaID=' + selectedOpremaID);
+        });
+    });
+</script>
