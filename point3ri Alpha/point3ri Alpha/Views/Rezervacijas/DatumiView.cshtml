@@ -1,0 +1,19 @@
+﻿@model point3ri_Alpha_0._51.Models.ViewModel.DatumiViewModel
+
+@{
+    ViewBag.Title = "CreateRacunala";
+    Layout = null;
+}
+
+@Html.DropDownListFor(dat => dat.DatumiList, Model.DatumiIEnum, null, htmlAttributes: new { @id = "Datum-DropdownID", @class = "form-control" })
+
+<script type="text/javascript">
+            $(function () {
+                $('#Datum-DropdownID').change(function () {
+                    var selectedDatumRezervacije = new Date(dat.selectedDatumRezervacije);
+                    var selectedOpremaID = $('#Oprema-DropdownID option:selected').val();
+
+                    $('#DanTerminiContainer').load('@Url.Action("DanTerminView")');
+                });
+            });
+</script>

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace point3ri_Alpha_0._51.Models.ViewModel
 {
-    class OpremaViewModel
+    public class OpremaViewModel
     {
         public List<Models.Oprema> OpremaList = new List<Models.Oprema>();
         public int SelectedOpremaID { get; set; }

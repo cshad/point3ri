@@ -226,5 +226,66 @@ namespace point3ri_Alpha_0._51.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public static Models.ViewModel.DatumiViewModel dvm = new Models.ViewModel.DatumiViewModel();
+
+        public ActionResult DatumiView()
+        {
+            dvm.DatumiList.Clear();
+
+            dvm.DatumiList.Add(DateTime.Today);
+            int tjedan = 7;
+            for (int i = 1; i < tjedan; i++)
+            {
+                dvm.DatumiList.Add(DateTime.Today.AddDays(i));
+            }
+
+            return View(dvm);
+        }
+
+        public static Models.ViewModel.ProstorijaViewModel pvm = new Models.ViewModel.ProstorijaViewModel();
+        public ActionResult ProstorijaView()
+        {
+            pvm.ProstorijaList.Clear();
+
+            foreach (Prostorija prostorija in db.Prostorijas)
+            {
+                pvm.ProstorijaList.Add(prostorija);
+            }
+            return View(pvm);
+        }
+
+        public static Models.ViewModel.OpremaViewModel ovm = new Models.ViewModel.OpremaViewModel();
+        public ActionResult OpremaView(int? ProstorijaID)
+        {
+            ovm.OpremaList.Clear();
+            if (ProstorijaID != null)
+            {
+                Prostorija mp = db.Prostorijas.FirstOrDefault(pr => pr.ID == ProstorijaID);
+                foreach (Oprema oprema in mp.Opremas)
+                {
+                    ovm.OpremaList.Add(oprema);
+                }
+            }
+            return View(ovm);
+        }
+
+        public static Models.ViewModel.DanTerminViewModel dtvm = new Models.ViewModel.DanTerminViewModel();
+        public ActionResult DanTerminView(DateTime? DatumRezervacije, int? OpremaID)
+        {
+            dtvm.DanTerminiList.Clear();
+
+            if (DatumRezervacije != null && OpremaID != null)
+            {            
+            foreach (Rezervacija rezervacija in db.Rezervacijas)
+            {
+                if (rezervacija.DatumRezervacije == DatumRezervacije && rezervacija.OpremaID == OpremaID)
+                {
+                    dtvm.DanTerminiList.Add(rezervacija.DanTermini);
+                }
+            }
+            }
+            return View(dtvm);
+        }
     }
 }

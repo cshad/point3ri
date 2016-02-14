@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace point3ri_Alpha_0._51.Models.ViewModel
 {
-    class DanTerminViewModel
+    public class DanTerminViewModel
     {
         public List<DanTermini> DanTerminiList = new List<DanTermini>();
         public int SelectedDanTerminiID { get; set; }

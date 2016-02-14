@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace point3ri_Alpha_0._51.Models.ViewModel
 {
-    class ProstorijaViewModel
+    public class ProstorijaViewModel
     {
         public List<Models.Prostorija> ProstorijaList = new List<Models.Prostorija>();
         public int SelectedProstorijaID { get; set; }

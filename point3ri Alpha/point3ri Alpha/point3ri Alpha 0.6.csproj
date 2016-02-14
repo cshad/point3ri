@@ -202,6 +202,7 @@
     <Compile Include="Models\Rezervacija.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\ViewModel\DanTerminViewModel.cs" />
+    <Compile Include="Models\ViewModel\DatumiViewModel.cs" />
     <Compile Include="Models\ViewModel\KategorijaOpremeViewModel.cs" />
     <Compile Include="Models\ViewModel\OpremaViewModel.cs" />
     <Compile Include="Models\ViewModel\ProstorijaViewModel.cs" />
@@ -369,6 +370,10 @@
     <Content Include="Views\Rezervacijas\CreateRacunala.cshtml" />
     <Content Include="_Tema.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Rezervacijas\ProstorijaView.cshtml" />
+    <Content Include="Views\Rezervacijas\OpremaView.cshtml" />
+    <Content Include="Views\Rezervacijas\DanTerminView.cshtml" />
+    <Content Include="Views\Rezervacijas\DatumiView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
