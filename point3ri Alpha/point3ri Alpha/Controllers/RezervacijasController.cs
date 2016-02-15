@@ -85,16 +85,16 @@ namespace point3ri_Alpha_0._51.Controllers
         // POST: Rezervacijas/CreateRacunala
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateRacunala([Bind(Include = "DatumRezervacije,DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int Trajanje)
+        public ActionResult CreateRacunala([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int Trajanje, int DatumRezervacijeID)
         {
             var duration = Trajanje;
-
             rezervacija.KorisnikID = User.Identity.GetUserId();
             rezervacija.VrijemeRezerviranja = DateTime.Now;
             rezervacija.RezervacijaAktivna = true;
+            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID-1].DatumiRezervacije;
+
             if (ModelState.IsValid)
             {
-                // dodati validaciju?
                 if (duration > 0 && rezervacija.DanTerminiID < 144 - duration)
                 {
                     int start = rezervacija.DanTerminiID.Value;
@@ -227,21 +227,37 @@ namespace point3ri_Alpha_0._51.Controllers
             base.Dispose(disposing);
         }
 
-        public static Models.ViewModel.DatumiViewModel dvm = new Models.ViewModel.DatumiViewModel();
+        public static List<Models.DataModel.DatumiDataModel> Datumi = new List<Models.DataModel.DatumiDataModel>()
+        {            
+            new Models.DataModel.DatumiDataModel
+            { ID = 1, DatumiRezervacije = DateTime.Today },
+            new Models.DataModel.DatumiDataModel
+            { ID = 2, DatumiRezervacije = DateTime.Today.AddDays(1) },
+            new Models.DataModel.DatumiDataModel
+            { ID = 3, DatumiRezervacije = DateTime.Today.AddDays(2) },
+            new Models.DataModel.DatumiDataModel
+            { ID = 4, DatumiRezervacije = DateTime.Today.AddDays(3) },
+            new Models.DataModel.DatumiDataModel
+            { ID = 5, DatumiRezervacije = DateTime.Today.AddDays(4) },
+            new Models.DataModel.DatumiDataModel
+            { ID = 6, DatumiRezervacije = DateTime.Today.AddDays(5) },
+            new Models.DataModel.DatumiDataModel
+            { ID = 7, DatumiRezervacije = DateTime.Today.AddDays(6) }
+        };
 
-        public ActionResult DatumiView()
-        {
-            dvm.DatumiList.Clear();
+        //public ActionResult DatumiView()
+        //{
+        //    dvm.DatumiList.Clear();
 
-            dvm.DatumiList.Add(DateTime.Today);
-            int tjedan = 7;
-            for (int i = 1; i < tjedan; i++)
-            {
-                dvm.DatumiList.Add(DateTime.Today.AddDays(i));
-            }
+        //    dvm.DatumiList.Add(DateTime.Today);
+        //    int tjedan = 7;
+        //    for (int i = 1; i < tjedan; i++)
+        //    {
+        //        dvm.DatumiList.Add(DateTime.Today.AddDays(i));
+        //    }
 
-            return View(dvm);
-        }
+        //    return View(dvm);
+        //}
 
         public static Models.ViewModel.ProstorijaViewModel pvm = new Models.ViewModel.ProstorijaViewModel();
         public ActionResult ProstorijaView()
@@ -270,22 +286,44 @@ namespace point3ri_Alpha_0._51.Controllers
             return View(ovm);
         }
 
+        public static Models.ViewModel.DatumiViewModel dvm = new Models.ViewModel.DatumiViewModel();
+
+        public ActionResult DatumiView()
+        {
+            dvm.DatumiList.Clear();
+            foreach (Models.DataModel.DatumiDataModel datum in Datumi)
+            {
+                dvm.DatumiList.Add(datum);
+            }
+            return View(dvm);
+        }
+
         public static Models.ViewModel.DanTerminViewModel dtvm = new Models.ViewModel.DanTerminViewModel();
-        public ActionResult DanTerminView(DateTime? DatumRezervacije, int? OpremaID)
+        public ActionResult DanTerminView(int? DatumRezervacijeID, int? OpremaID)
         {
             dtvm.DanTerminiList.Clear();
 
-            if (DatumRezervacije != null && OpremaID != null)
-            {            
-            foreach (Rezervacija rezervacija in db.Rezervacijas)
+            if (DatumRezervacijeID != null && OpremaID != null)
             {
-                if (rezervacija.DatumRezervacije == DatumRezervacije && rezervacija.OpremaID == OpremaID)
+                int datumDropdownID = DatumRezervacijeID.Value;
+                DateTime datum = Datumi[datumDropdownID - 1].DatumiRezervacije;
+
+                foreach (DanTermini termin in db.DanTerminis)
                 {
-                    dtvm.DanTerminiList.Add(rezervacija.DanTermini);
+                    dtvm.DanTerminiList.Add(termin);
+                }                
+                
+                foreach (Rezervacija rezervacija in db.Rezervacijas)
+                {
+                    if (rezervacija.DatumRezervacije == datum && rezervacija.OpremaID == OpremaID)
+                    {
+                        dtvm.DanTerminiList.Remove(rezervacija.DanTermini);
+                    }
                 }
-            }
             }
             return View(dtvm);
         }
+
+
     }
 }

@@ -5,11 +5,12 @@
     Layout = null;
 }
 
-@Html.DropDownListFor(dat => dat.DatumiList, Model.DatumiIEnum, null, htmlAttributes: new { @datetime = "Datum-DropdownDate option:selected", @class = "form-control" })
+@Html.DropDownList("DatumRezervacijeID", Model.DatumiRezervacijeIEnum, null, htmlAttributes: new { @id = "Datum-DropdownID", @class = "form-control" })
+
 
 <script type="text/javascript">
             $(function () {
-                $('#Datum-DropdownDate').change(function () {
+                $('#Datum-DropdownID').change(function () {
                     var selectedDatumRezervacije = this.value;
                 });
             });

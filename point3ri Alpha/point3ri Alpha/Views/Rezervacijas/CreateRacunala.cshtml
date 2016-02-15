@@ -4,7 +4,6 @@
 @{
     ViewBag.Title = "CreateRacunala";
     Layout = "~/_Tema.cshtml";
-
 }
 
 <h2>CreateRacunala</h2>
@@ -20,7 +19,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DatumRezervacije, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DatumRezervacije, "DatumRezervacije", htmlAttributes: new { @id= "DatumRezervacijeID" ,@class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div id="DatumiContainer">
                     @Html.Action("DatumiView")
