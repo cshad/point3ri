@@ -9,13 +9,13 @@ namespace point3ri_Alpha_0._51.Models.ViewModel
 {
     public class DatumiViewModel
     {
-        public List<DateTime> DatumiList = new List<DateTime>();
-        public int SelectedDatumRezervacije { get; set; }
-        public IEnumerable<SelectListItem> DatumiIEnum
+        public List<DataModel.DatumiDataModel> DatumiList = new List<DataModel.DatumiDataModel>();
+        public int SelectedDatumRezervacijeID { get; set; }
+        public IEnumerable<SelectListItem> DatumiRezervacijeIEnum
         {
             get
             {
-                return new SelectList(DatumiList);
+                return new SelectList(DatumiList, "ID", "DatumiRezervacije");
             }
         }
 

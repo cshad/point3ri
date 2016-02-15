@@ -191,6 +191,7 @@
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\DanTermini.cs" />
+    <Compile Include="Models\DataModel\DatumiDataModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KategorijaOpreme.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

@@ -21,7 +21,7 @@ namespace point3ri_Alpha_0._51.Models
         [StringLength(128)]
         public string KorisnikID { get; set; }
 
-        [Required]
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DatumRezervacije { get; set; }
