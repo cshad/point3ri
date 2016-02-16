@@ -192,6 +192,7 @@
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\DanTermini.cs" />
     <Compile Include="Models\DataModel\DatumiDataModel.cs" />
+    <Compile Include="Models\DataModel\TrajanjeDataModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KategorijaOpreme.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Models\ViewModel\KategorijaOpremeViewModel.cs" />
     <Compile Include="Models\ViewModel\OpremaViewModel.cs" />
     <Compile Include="Models\ViewModel\ProstorijaViewModel.cs" />
+    <Compile Include="Models\ViewModel\TrajanjeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -375,6 +377,7 @@
     <Content Include="Views\Rezervacijas\OpremaView.cshtml" />
     <Content Include="Views\Rezervacijas\DanTerminView.cshtml" />
     <Content Include="Views\Rezervacijas\DatumiView.cshtml" />
+    <Content Include="Views\Rezervacijas\TrajanjeView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

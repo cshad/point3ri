@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace point3ri_Alpha_0._51.Models.ViewModel
     {
         public List<DanTermini> DanTerminiList = new List<DanTermini>();
         public int SelectedDanTerminiID { get; set; }
+
         public IEnumerable<SelectListItem> DanTerminiIEnum
         {
             get

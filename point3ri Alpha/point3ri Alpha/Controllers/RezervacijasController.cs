@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using point3ri_Alpha_0._51.Models;
 using Microsoft.AspNet.Identity;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace point3ri_Alpha_0._51.Controllers
 {
@@ -57,9 +58,9 @@ namespace point3ri_Alpha_0._51.Controllers
         public ActionResult Create([Bind(Include = "DatumRezervacije,DanTerminiID,OpremaID,ProstorijaID,VrijemeRezerviranja,RezervacijaAktivna")] Rezervacija rezervacija)
         {
 
-            rezervacija.KorisnikID = User.Identity.GetUserId();           
+            rezervacija.KorisnikID = User.Identity.GetUserId();
             if (ModelState.IsValid)
-            {                
+            {
                 db.Rezervacijas.Add(rezervacija);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,16 +86,17 @@ namespace point3ri_Alpha_0._51.Controllers
         // POST: Rezervacijas/CreateRacunala
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateRacunala([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int Trajanje, int DatumRezervacijeID)
+        public ActionResult CreateRacunala([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int TrajanjeID, int DatumRezervacijeID)
         {
-            var duration = Trajanje;
+            var duration = TrajanjeID;
             rezervacija.KorisnikID = User.Identity.GetUserId();
             rezervacija.VrijemeRezerviranja = DateTime.Now;
             rezervacija.RezervacijaAktivna = true;
-            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID-1].DatumiRezervacije;
+            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID - 1].DatumiRezervacije;
 
             if (ModelState.IsValid)
             {
+                // Kod za trajanje
                 if (duration > 0 && rezervacija.DanTerminiID < 144 - duration)
                 {
                     int start = rezervacija.DanTerminiID.Value;
@@ -118,6 +120,7 @@ namespace point3ri_Alpha_0._51.Controllers
             ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "ID", rezervacija.DanTerminiID);
             ViewBag.OpremaID = new SelectList(db.Opremas, "ID", "Naziv", rezervacija.OpremaID);
             ViewBag.ProstorijaID = new SelectList(db.Prostorijas, "ID", "Naziv");
+
             return View(rezervacija);
         }
 
@@ -228,7 +231,7 @@ namespace point3ri_Alpha_0._51.Controllers
         }
 
         public static List<Models.DataModel.DatumiDataModel> Datumi = new List<Models.DataModel.DatumiDataModel>()
-        {            
+        {
             new Models.DataModel.DatumiDataModel
             { ID = 1, DatumiRezervacije = DateTime.Today },
             new Models.DataModel.DatumiDataModel
@@ -245,19 +248,23 @@ namespace point3ri_Alpha_0._51.Controllers
             { ID = 7, DatumiRezervacije = DateTime.Today.AddDays(6) }
         };
 
-        //public ActionResult DatumiView()
-        //{
-        //    dvm.DatumiList.Clear();
-
-        //    dvm.DatumiList.Add(DateTime.Today);
-        //    int tjedan = 7;
-        //    for (int i = 1; i < tjedan; i++)
-        //    {
-        //        dvm.DatumiList.Add(DateTime.Today.AddDays(i));
-        //    }
-
-        //    return View(dvm);
-        //}
+        public static List<Models.DataModel.TrajanjeDataModel> TrajanjeList = new List<Models.DataModel.TrajanjeDataModel>()
+        {
+            new Models.DataModel.TrajanjeDataModel
+            { ID = 0, Trajanje = "5 minuta", BrojZauzetihTermina = 1 },
+            new Models.DataModel.TrajanjeDataModel
+            { ID = 1, Trajanje = "10 minuta", BrojZauzetihTermina = 2 },
+            new Models.DataModel.TrajanjeDataModel
+            { ID = 2, Trajanje = "15 minuta", BrojZauzetihTermina = 3 },
+            new Models.DataModel.TrajanjeDataModel
+            { ID = 3, Trajanje = "30 minuta", BrojZauzetihTermina = 6 },
+            new Models.DataModel.TrajanjeDataModel
+            { ID = 4, Trajanje = "45 minuta", BrojZauzetihTermina = 9 },
+            new Models.DataModel.TrajanjeDataModel
+            { ID = 5, Trajanje = "60 minuta", BrojZauzetihTermina = 12 },
+             new Models.DataModel.TrajanjeDataModel
+            { ID = 6, Trajanje = "120 minuta", BrojZauzetihTermina = 24 }
+        };
 
         public static Models.ViewModel.ProstorijaViewModel pvm = new Models.ViewModel.ProstorijaViewModel();
         public ActionResult ProstorijaView()
@@ -287,7 +294,6 @@ namespace point3ri_Alpha_0._51.Controllers
         }
 
         public static Models.ViewModel.DatumiViewModel dvm = new Models.ViewModel.DatumiViewModel();
-
         public ActionResult DatumiView()
         {
             dvm.DatumiList.Clear();
@@ -311,8 +317,8 @@ namespace point3ri_Alpha_0._51.Controllers
                 foreach (DanTermini termin in db.DanTerminis)
                 {
                     dtvm.DanTerminiList.Add(termin);
-                }                
-                
+                }
+
                 foreach (Rezervacija rezervacija in db.Rezervacijas)
                 {
                     if (rezervacija.DatumRezervacije == datum && rezervacija.OpremaID == OpremaID)
@@ -324,6 +330,18 @@ namespace point3ri_Alpha_0._51.Controllers
             return View(dtvm);
         }
 
+        public static Models.ViewModel.TrajanjeViewModel tvm = new Models.ViewModel.TrajanjeViewModel();
+        public ActionResult TrajanjeView()
+        {
+            tvm.TrajanjeList.Clear();
+            foreach (Models.DataModel.TrajanjeDataModel tr in TrajanjeList)
+            {
+                tvm.TrajanjeList.Add(tr);
+            }
 
+            // To-do: filter za trajanje
+
+            return View(tvm);
+        }
     }
 }
