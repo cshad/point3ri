@@ -10,12 +10,9 @@
 <script type="text/javascript">
     $(function () {
         // Popuni DanTermine
-        $('#OpremaID').change(function () {           
-
-            var selectedDatumRezervacije = $("#Datum-DropdownID option:selected").val();
-            
-            var selectedOpremaID = this.value;
-            
+        $('#OpremaID').change(function () {
+            var selectedDatumRezervacije = $("#Datum-DropdownID option:selected").val();            
+            var selectedOpremaID = this.value;            
             $('#DanTerminiContainer').load('@Url.Action("DanTerminView")?DatumRezervacijeID=' + selectedDatumRezervacije + '&OpremaID=' + selectedOpremaID);
         });
     });

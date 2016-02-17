@@ -14,6 +14,7 @@ using System.ComponentModel.DataAnnotations;
 namespace point3ri_Alpha_0._51.Controllers
 {
     [Authorize]
+    [OutputCache(Duration = 1)]
     public class RezervacijasController : Controller
     {
         private point3ri db = new point3ri();
@@ -88,7 +89,8 @@ namespace point3ri_Alpha_0._51.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateRacunala([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int TrajanjeID, int DatumRezervacijeID)
         {
-            var duration = TrajanjeID;
+            var duration = TrajanjeList[TrajanjeID].BrojZauzetihTermina;
+
             rezervacija.KorisnikID = User.Identity.GetUserId();
             rezervacija.VrijemeRezerviranja = DateTime.Now;
             rezervacija.RezervacijaAktivna = true;
@@ -96,8 +98,8 @@ namespace point3ri_Alpha_0._51.Controllers
 
             if (ModelState.IsValid)
             {
-                // Kod za trajanje
-                if (duration > 0 && rezervacija.DanTerminiID < 144 - duration)
+                // Kod za trajanje - todo: logika je kriva
+                if (duration > 1 && rezervacija.DanTerminiID < 144 - duration)
                 {
                     int start = rezervacija.DanTerminiID.Value;
                     for (int i = start; i <= start + duration; i++)
@@ -278,7 +280,7 @@ namespace point3ri_Alpha_0._51.Controllers
             return View(pvm);
         }
 
-        public static Models.ViewModel.OpremaViewModel ovm = new Models.ViewModel.OpremaViewModel();
+        public Models.ViewModel.OpremaViewModel ovm = new Models.ViewModel.OpremaViewModel();
         public ActionResult OpremaView(int? ProstorijaID)
         {
             ovm.OpremaList.Clear();
@@ -303,6 +305,7 @@ namespace point3ri_Alpha_0._51.Controllers
             }
             return View(dvm);
         }
+
 
         public static Models.ViewModel.DanTerminViewModel dtvm = new Models.ViewModel.DanTerminViewModel();
         public ActionResult DanTerminView(int? DatumRezervacijeID, int? OpremaID)
