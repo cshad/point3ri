@@ -98,11 +98,10 @@ namespace point3ri_Alpha_0._51.Controllers
 
             if (ModelState.IsValid)
             {
-                // Kod za trajanje - todo: logika je kriva
-                if (duration > 1 && rezervacija.DanTerminiID < 144 - duration)
+                if (duration > 1 && rezervacija.DanTerminiID < 145 - duration)
                 {
                     int start = rezervacija.DanTerminiID.Value;
-                    for (int i = start; i <= start + duration; i++)
+                    for (int i = start; i < start + duration; i++)
                     {
                         db.Rezervacijas.Add(rezervacija);
                         db.SaveChanges();
@@ -334,16 +333,76 @@ namespace point3ri_Alpha_0._51.Controllers
         }
 
         public static Models.ViewModel.TrajanjeViewModel tvm = new Models.ViewModel.TrajanjeViewModel();
-        public ActionResult TrajanjeView()
+        public ActionResult TrajanjeView(int? DatumRezervacijeID, int? OpremaID, int? DanTerminiID)
         {
             tvm.TrajanjeList.Clear();
-            foreach (Models.DataModel.TrajanjeDataModel tr in TrajanjeList)
+            
+            if (DatumRezervacijeID != null && OpremaID != null && DanTerminiID != null)
             {
-                tvm.TrajanjeList.Add(tr);
+                int DatumRezervacije = DatumRezervacijeID.Value;
+                int Oprema = OpremaID.Value;
+                int DanTermini = DanTerminiID.Value;
+
+                foreach (Models.DataModel.TrajanjeDataModel tr in TrajanjeList)
+                {
+                    tvm.TrajanjeList.Add(tr);
+                }
+
+                // Brojac zauzetih dana nakon termina
+                int razlikaTermina = 0;
+                int brojacZauzetiTerminV = 24;
+                int brojacZauzetiTermin = 24;
+                int MaxTermina = 145;
+                int razlikaMaxTerminTemp = 144;
+                int razlikaMaxTermin = 144;
+
+                foreach (Rezervacija rezervacija in db.Rezervacijas)
+                {
+                    if (rezervacija.DatumRezervacije == Datumi[DatumRezervacijeID.Value - 1].DatumiRezervacije
+                        && rezervacija.OpremaID == OpremaID)
+                    {
+                        // Trazi dan termine (23 - 120 minuta je maksimalni broj)
+                        if (rezervacija.DanTerminiID >= DanTerminiID && rezervacija.DanTerminiID <= DanTerminiID + 23)
+                        {
+                            // Trazi slobodne termine do slijedeceg zauzetog
+                            razlikaTermina = rezervacija.DanTerminiID.Value - DanTerminiID.Value;
+                            if (razlikaTermina < brojacZauzetiTerminV)
+                            {
+                                brojacZauzetiTerminV = razlikaTermina;
+                                if (brojacZauzetiTermin > brojacZauzetiTerminV)
+                                {
+                                    brojacZauzetiTermin = brojacZauzetiTerminV;
+                                }                              
+                            }
+
+                        }
+                        if (DanTerminiID >= (MaxTermina - DanTerminiID))
+                        {
+                            // Trazi slobodne termine do kraja terminListe
+                            razlikaMaxTerminTemp = MaxTermina - DanTerminiID.Value;
+                            if (razlikaMaxTerminTemp < razlikaMaxTermin)
+                            {
+                                razlikaMaxTermin = razlikaMaxTerminTemp;
+                            }
+                        }
+
+                        // Stvarni broj slobodnih termina do gornje granice
+                        if (razlikaMaxTermin < brojacZauzetiTermin)
+                        {
+                            brojacZauzetiTermin = razlikaMaxTermin;
+                        }
+                    }
+                }
+
+                // To do: brojac zauzetih dana iskoristiti tu
+                foreach (Models.DataModel.TrajanjeDataModel tr2 in TrajanjeList)
+                {
+                    if (tr2.BrojZauzetihTermina > brojacZauzetiTermin)
+                    {
+                        tvm.TrajanjeList.Remove(tr2);
+                    }
+                }
             }
-
-            // To-do: filter za trajanje
-
             return View(tvm);
         }
     }
