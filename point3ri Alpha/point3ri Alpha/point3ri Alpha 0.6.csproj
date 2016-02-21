@@ -342,7 +342,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -379,6 +379,8 @@
     <Content Include="Views\Rezervacijas\DanTerminView.cshtml" />
     <Content Include="Views\Rezervacijas\DatumiView.cshtml" />
     <Content Include="Views\Rezervacijas\TrajanjeView.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial - Copy.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -51,7 +51,10 @@
                 </button>
                 <a class="navbar-brand" href="~/Content/Tema/index.html"><span>Vern </span>R</a>
             </div>
-            @if (User.Identity.IsAuthenticated)
+            <div>
+                @Html.Partial("_LoginPartial")
+            </div>
+            @*@if (User.Identity.IsAuthenticated)
             {
                 <div class="collapse navbar-collapse" id="navbar-top">
                     <ul class="nav navbar-nav navbar-right">
@@ -65,9 +68,7 @@
                                 <li><a href="~/Content/Tema/blog.html">Prijašnje rezervacije</a></li>
                                 <li><a href="~/Content/Tema/single.html">Postavke</a></li>
                                 <li><a href="~/Content/Tema/archive.html">Admin panel</a></li>
-                                <li><a href="~/Content/Tema/category.html">Odjavi se</a></li>
-                                <!--<li><a href="~/Content/Tema/portfolio.html">Portfolio</a></li>
-                                <li><a href="~/Content/Tema/portfolio-single.html">Portfolio Single</a></li>-->
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()">Odjavi se</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -84,7 +85,7 @@
                         <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Login"?"active":"")"><a href="/Account/Login">Prijava</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
-            }
+            }*@
         </div><!-- /.container-fluid -->
     </nav>
     <!-- end:navbar -->

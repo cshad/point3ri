@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using point3ri_Alpha_0._51.Models;
 using System.Net.Mail;
+using System.Web.Security;
 
 namespace point3ri_Alpha_0._51.Controllers
 {
