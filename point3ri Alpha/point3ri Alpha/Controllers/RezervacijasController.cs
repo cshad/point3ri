@@ -87,17 +87,17 @@ namespace point3ri_Alpha_0._51.Controllers
         // POST: Rezervacijas/CreateRacunala
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateRacunala([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int TrajanjeID, int DatumRezervacijeID)
+        public ActionResult CreateRacunala([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int? TrajanjeID, int? DatumRezervacijeID)
         {
-            var duration = TrajanjeList[TrajanjeID].BrojZauzetihTermina;
 
             rezervacija.KorisnikID = User.Identity.GetUserId();
             rezervacija.VrijemeRezerviranja = DateTime.Now;
             rezervacija.RezervacijaAktivna = true;
-            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID - 1].DatumiRezervacije;
+            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID.Value - 1].DatumiRezervacije;
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && TrajanjeID != null)
             {
+                var duration = TrajanjeList[TrajanjeID.Value].BrojZauzetihTermina;
                 if (duration > 1 && rezervacija.DanTerminiID < 145 - duration)
                 {
                     int start = rezervacija.DanTerminiID.Value;
