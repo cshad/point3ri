@@ -23,14 +23,14 @@
 </section>
 <!-- end:header -->
 
-<div style="@*width:80%*@;margin-left:5%;margin-right:5%">
+<div style="margin-left:35%;margin-right:35%;position:center">
     <div class="row">
-        <div class="col-md-8">
+        <div @*class="col-md-8"*@ style="width:100%">
             <section id="loginForm">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                     @Html.AntiForgeryToken()
-                    <h4 @*style="margin-left:5%"*@>Prijava korisnika putem @@vernnet.hr mail accounta.</h4>
+                    <h4 style="margin-top:5%">Prijava korisnika putem @@vernnet.hr mail accounta.</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox" style="margin-left:5%;float:left">
+                            <div class="checkbox" style="margin-left:6%;float:left">
                                 @Html.CheckBoxFor(m => m.RememberMe)
                                 @Html.LabelFor(m => m.RememberMe, "Zapamti me?")
                             </div>
@@ -72,11 +72,11 @@
                 }
             </section>
         </div>
-        <div class="col-md-4">
-            @*<section id="socialLoginForm">
+        @*<div class="col-md-4">
+            <section id="socialLoginForm">
                     @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-                </section>*@
-        </div>
+                </section>
+        </div>*@
     </div>
 </div>
 @section Scripts {
