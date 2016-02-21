@@ -336,7 +336,7 @@ namespace point3ri_Alpha_0._51.Controllers
         public ActionResult TrajanjeView(int? DatumRezervacijeID, int? OpremaID, int? DanTerminiID)
         {
             tvm.TrajanjeList.Clear();
-            
+
             if (DatumRezervacijeID != null && OpremaID != null && DanTerminiID != null)
             {
                 int DatumRezervacije = DatumRezervacijeID.Value;
@@ -372,29 +372,28 @@ namespace point3ri_Alpha_0._51.Controllers
                                 if (brojacZauzetiTermin > brojacZauzetiTerminV)
                                 {
                                     brojacZauzetiTermin = brojacZauzetiTerminV;
-                                }                              
-                            }
-
-                        }
-                        if (DanTerminiID >= (MaxTermina - DanTerminiID))
-                        {
-                            // Trazi slobodne termine do kraja terminListe
-                            razlikaMaxTerminTemp = MaxTermina - DanTerminiID.Value;
-                            if (razlikaMaxTerminTemp < razlikaMaxTermin)
-                            {
-                                razlikaMaxTermin = razlikaMaxTerminTemp;
+                                }
                             }
                         }
-
-                        // Stvarni broj slobodnih termina do gornje granice
-                        if (razlikaMaxTermin < brojacZauzetiTermin)
+                    }
+                    if (DanTerminiID >= (MaxTermina - DanTerminiID))
+                    {
+                        // Trazi slobodne termine do kraja terminListe
+                        razlikaMaxTerminTemp = MaxTermina - DanTerminiID.Value;
+                        if (razlikaMaxTerminTemp < razlikaMaxTermin)
                         {
-                            brojacZauzetiTermin = razlikaMaxTermin;
+                            razlikaMaxTermin = razlikaMaxTerminTemp;
                         }
+                    }
+
+                    // Stvarni broj slobodnih termina do gornje granice
+                    if (razlikaMaxTermin < brojacZauzetiTermin)
+                    {
+                        brojacZauzetiTermin = razlikaMaxTermin;
                     }
                 }
 
-                // To do: brojac zauzetih dana iskoristiti tu
+                // Trajanje lista
                 foreach (Models.DataModel.TrajanjeDataModel tr2 in TrajanjeList)
                 {
                     if (tr2.BrojZauzetihTermina > brojacZauzetiTermin)

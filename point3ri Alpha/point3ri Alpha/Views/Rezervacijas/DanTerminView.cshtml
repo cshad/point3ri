@@ -5,4 +5,16 @@
     Layout = null;
 }
 
-@Html.DropDownList("DanTerminiID", Model.DanTerminiIEnum, htmlAttributes: new { @id="DanTermini-DropdownID", @class = "form-control"})
+@Html.DropDownList("DanTerminiID", Model.DanTerminiIEnum, "Odaberite termin", htmlAttributes: new { @id = "DanTermini-DropdownID", @class = "form-control" })
+
+<script type="text/javascript">
+    $(function () {
+        // Popuni trajanje
+        $('#DanTermini-DropdownID').change(function () {
+            var selectedDatumRezervacije = $("#Datum-DropdownID option:selected").val();
+            var selectedOpremaID = $("#Oprema-DropdownID option:selected").val();
+            var selectedDanTerminiID = this.value;
+            $('#TrajanjeContainer').load('@Url.Action("TrajanjeView")?DatumRezervacijeID=' + selectedDatumRezervacije + '&OpremaID=' + selectedOpremaID + '&DanTerminiID=' + selectedDanTerminiID);
+        });
+    });
+</script>
