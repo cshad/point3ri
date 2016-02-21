@@ -11,7 +11,10 @@
 <script type="text/javascript">
             $(function () {
                 $('#Datum-DropdownID').change(function () {
-                    var selectedDatumRezervacije = this.value;
+                    $('#ProstorijaContainer').load('@Url.Action("ProstorijaView")');
+                    $('#OpremaContainer').load('@Url.Action("OpremaView")');
+                    $('#DanTerminiContainer').load('@Url.Action("DanTerminView")');
+                    $('#TrajanjeContainer').load('@Url.Action("TrajanjeView")');
                 });
             });
 </script>

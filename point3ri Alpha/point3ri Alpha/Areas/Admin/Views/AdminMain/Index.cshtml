@@ -1,18 +1,40 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/_Tema.cshtml";
 }
 
-<h2>Index</h2>
+<!-- begin:header -->
+<section id="header" style="background-image: url(/Content/Tema/img/IMG_0937.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <blockquote>
+                    <p>Admin page</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>
+<!-- end:header -->
 
 <body>
     <ul>
-        <li>@Html.ActionLink("Korisnici", "Index", "AspNetUsers", new { area = "Admin" }, new { })</li>
-        <li>@Html.ActionLink("Oprema", "Index", "Opremas", new { area = "Admin" }, new { })</li>
-        <li>@Html.ActionLink("Kategorije opreme", "Index", "KategorijaOpremes", new { area = "Admin" }, new { })</li>
-        <li>@Html.ActionLink("Prostorije", "Index", "Prostorijas", new { area = "Admin" }, new { })</li>
-        <li>@Html.ActionLink("Rezervacije", "Index", "Rezervacijes", new { area = "Admin" }, new { })</li>
-        <li>@Html.ActionLink("Prijava lošeg stanja opreme", "Index", "PrijavaLosegStanjaOpremes", new { area = "Admin" }, new { })</li>
+        <li><button type="button" (style="font-family: comic sans ms" style="color:red" ) onclick="location.href='@Url.Action("Index", "AspNetUsers", new { area = "Admin" })'">Korisnici</button></li>
+        <li><button type="button" (style="font-family: comic sans ms" style="color:red" ) onclick="location.href='@Url.Action("Index", "Opremas", new { area = "Admin" })'">Oprema</button></li>
+        <li><button type="button" (style="font-family: comic sans ms" style="color:red" ) onclick="location.href='@Url.Action("Index", "KategorijaOpremes", new { area = "Admin" })'">Kategorije Opreme</button></li>
+        <li><button type="button" (style="font-family: comic sans ms" style="color:red" ) onclick="location.href='@Url.Action("Index", "Prostorijas", new { area = "Admin" })'">Prostorije</button></li>
+        <li><button type="button" (style="font-family: comic sans ms" style="color:red" ) onclick="location.href='@Url.Action("Index", "Rezervacijes", new { area = "Admin" })'">Rezervacije</button></li>
+        <li><button type="button" (style="font-family: comic sans ms" style="color:red" ) onclick="location.href='@Url.Action("Index", "PrijavaLosegStanjaOpremes", new { area = "Admin" })'">Prijava lošeg stanja opreme</button></li>
+
+        @*
+            <li>@Html.ActionLink("Korisnici", "Index", "AspNetUsers", new { area = "Admin" }, new { })</li>
+            <li>@Html.ActionLink("Oprema", "Index", "Opremas", new { area = "Admin" }, new { })</li>
+            <li>@Html.ActionLink("Kategorije opreme", "Index", "KategorijaOpremes", new { area = "Admin" }, new { })</li>
+            <li>@Html.ActionLink("Prostorije", "Index", "Prostorijas", new { area = "Admin" }, new { })</li>
+            <li>@Html.ActionLink("Rezervacije", "Index", "Rezervacijes", new { area = "Admin" }, new { })</li>
+            <li>@Html.ActionLink("Prijava lošeg stanja opreme", "Index", "PrijavaLosegStanjaOpremes", new { area = "Admin" }, new { })</li>
+        *@
     </ul>
 </body>
