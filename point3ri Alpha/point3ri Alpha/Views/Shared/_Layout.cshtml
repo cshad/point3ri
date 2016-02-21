@@ -51,6 +51,8 @@
                 </button>
                 <a class="navbar-brand" href="~/Content/Tema/index.html"><span>Vern </span>R</a>
             </div>
+            @if (!(User.Identity.IsAuthenticated))
+            {
             <div class="collapse navbar-collapse" id="navbar-top">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")"><a href="/Home/Index">Početna</a></li>
@@ -58,10 +60,14 @@
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Blog" ? "active" : "")"><a href="/Home/Blog">Obavijesti</a></li>
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "About" ? "active" : "")"><a href="/Home/About">O nama</a></li>
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Login" ? "active" : "")"><a href="/Account/Login">Prijava</a></li>
-                    @Html.Partial("_LoginPartial")
                 </ul>
             </div>
-                    
+            }
+            else {
+            @Html.Partial("_LoginPartial")
+            }
+
+
                     @*@if (User.Identity.IsAuthenticated)
                     {
                         <div class="collapse navbar-collapse" id="navbar-top">
