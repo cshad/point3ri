@@ -381,6 +381,8 @@
     <Content Include="Views\Rezervacijas\TrajanjeView.cshtml" />
     <Content Include="Views\Shared\_LoginPartial - Copy.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Rezervacijas\RezervacijeIndex.cshtml" />
+    <Content Include="Views\Rezervacijas\Otkazi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

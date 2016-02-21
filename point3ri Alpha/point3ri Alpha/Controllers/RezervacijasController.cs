@@ -26,6 +26,23 @@ namespace point3ri_Alpha_0._51.Controllers
             return View(rezervacijas.ToList());
         }
 
+        public static List<Rezervacija> ListaRezervacija = new List<Rezervacija>();
+        public ActionResult RezervacijeIndex()
+        {
+            string KorisnikID = User.Identity.GetUserId();
+            DateTime Danas = DateTime.Today;
+            foreach (Rezervacija rezervacija in db.Rezervacijas)
+            {
+                if (rezervacija.KorisnikID == KorisnikID &&
+                    rezervacija.RezervacijaAktivna == true &&
+                    rezervacija.DatumRezervacije >= Danas)
+                {
+                    ListaRezervacija.Add(rezervacija);
+                }
+            }
+            return View(ListaRezervacija);
+        }
+
         // GET: Rezervacijas/Details/5
         public ActionResult Details(int? id)
         {
@@ -220,6 +237,33 @@ namespace point3ri_Alpha_0._51.Controllers
             db.Rezervacijas.Remove(rezervacija);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // GET: Rezervacijas/Otkazi
+        public ActionResult Otkazi(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Rezervacija rezervacija = db.Rezervacijas.Find(id);
+            if (rezervacija == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rezervacija);
+        }
+
+        // POST: Rezervacijas/Otkazi
+        [HttpPost, ActionName("Otkazi")]
+        [ValidateAntiForgeryToken]
+        public ActionResult OtkaziPotvrda(int id)
+        {
+            Rezervacija rezervacija = db.Rezervacijas.Find(id);
+            rezervacija.RezervacijaAktivna = false;
+
+            db.SaveChanges();
+            return RedirectToAction("RezervacijeIndex");
         }
 
         protected override void Dispose(bool disposing)
