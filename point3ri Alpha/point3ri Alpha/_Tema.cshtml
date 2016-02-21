@@ -51,27 +51,40 @@
                 </button>
                 <a class="navbar-brand" href="~/Content/Tema/index.html"><span>Vern </span>R</a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-top">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Index"?"active":"")"><a href="/Home/Index">Početna</a></li>
-                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Create"?"active":"")"><a href="/Rezervacijas/Create">Rezervacije</a></li>
-                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Blog"?"active":"")"><a href="/Home/Blog">Obavijesti</a></li>
-                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="About"?"active":"")"><a href="/Home/About">O nama</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="~/Content/Tema/blog.html">Prijašnje rezervacije</a></li>
-                            <li><a href="~/Content/Tema/single.html">Postavke</a></li>
-                            <li><a href="~/Content/Tema/archive.html">Admin panel</a></li>
-                            <li><a href="~/Content/Tema/category.html">Odjavi se</a></li>
-                            <!--<li><a href="~/Content/Tema/portfolio.html">Portfolio</a></li>
-                            <li><a href="~/Content/Tema/portfolio-single.html">Portfolio Single</a></li>-->
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="collapse navbar-collapse" id="navbar-top">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Index"?"active":"")"><a href="/Home/Index">Početna</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Create"?"active":"")"><a href="/Rezervacijas/Create">Rezervacije</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Blog"?"active":"")"><a href="/Home/Blog">Obavijesti</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="About"?"active":"")"><a href="/Home/About">O nama</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Content/Tema/blog.html">Prijašnje rezervacije</a></li>
+                                <li><a href="~/Content/Tema/single.html">Postavke</a></li>
+                                <li><a href="~/Content/Tema/archive.html">Admin panel</a></li>
+                                <li><a href="~/Content/Tema/category.html">Odjavi se</a></li>
+                                <!--<li><a href="~/Content/Tema/portfolio.html">Portfolio</a></li>
+                                <li><a href="~/Content/Tema/portfolio-single.html">Portfolio Single</a></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            }
+            else
+            {
+                <div class="collapse navbar-collapse" id="navbar-top">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Index"?"active":"")"><a href="/Home/Index">Početna</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Create"?"active":"")"><a href="/Rezervacijas/Create">Rezervacije</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Blog"?"active":"")"><a href="/Home/Blog">Obavijesti</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="About"?"active":"")"><a href="/Home/About">O nama</a></li>
+                        <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString()=="Login"?"active":"")"><a href="/Account/Login">Prijava</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            }
         </div><!-- /.container-fluid -->
     </nav>
     <!-- end:navbar -->
