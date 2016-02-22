@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "point3ri Alpha 0.6", "point3ri Alpha\point3ri Alpha 0.6.csproj", "{3307BBEE-6999-4BBF-A5E8-6CC696F3C747}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "point3ri Alpha 0.9", "point3ri Alpha\point3ri Alpha 0.9.csproj", "{3307BBEE-6999-4BBF-A5E8-6CC696F3C747}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
