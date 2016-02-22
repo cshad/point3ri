@@ -383,6 +383,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Rezervacijas\RezervacijeIndex.cshtml" />
     <Content Include="Views\Rezervacijas\Otkazi.cshtml" />
+    <Content Include="Views\Rezervacijas\CreatePrinteri.cshtml" />
+    <Content Include="Views\Rezervacijas\ProstorijaStoloviView.cshtml" />
+    <Content Include="Views\Rezervacijas\ProstorijaPrinteriView.cshtml" />
+    <Content Include="Views\Rezervacijas\ProstorijaRacunalaView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

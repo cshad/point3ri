@@ -64,6 +64,7 @@ namespace point3ri_Alpha_0._51.Controllers
             ViewBag.KorisnikID = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "Termin");
             ViewBag.OpremaID = new SelectList(db.Opremas, "ID", "Naziv");
+            ViewBag.ProstorijaID = new SelectList(db.Prostorijas, "ID", "Naziv");
             return View();
         }
 
@@ -73,21 +74,40 @@ namespace point3ri_Alpha_0._51.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DatumRezervacije,DanTerminiID,OpremaID,ProstorijaID,VrijemeRezerviranja,RezervacijaAktivna")] Rezervacija rezervacija)
+        public ActionResult Create([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int? TrajanjeID, int? DatumRezervacijeID)
         {
-
             rezervacija.KorisnikID = User.Identity.GetUserId();
-            if (ModelState.IsValid)
+            rezervacija.VrijemeRezerviranja = DateTime.Now;
+            rezervacija.RezervacijaAktivna = true;
+            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID.Value - 1].DatumiRezervacije;
+
+            if (ModelState.IsValid && TrajanjeID != null)
             {
-                db.Rezervacijas.Add(rezervacija);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var duration = TrajanjeList[TrajanjeID.Value].BrojZauzetihTermina;
+                if (duration > 1 && rezervacija.DanTerminiID < 145 - duration)
+                {
+                    int start = rezervacija.DanTerminiID.Value;
+                    for (int i = start; i < start + duration; i++)
+                    {
+                        db.Rezervacijas.Add(rezervacija);
+                        db.SaveChanges();
+                        rezervacija.DanTerminiID += 1;
+                    }
+                }
+                else
+                {
+                    db.Rezervacijas.Add(rezervacija);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Home");
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
 
             ViewBag.KorisnikID = new SelectList(db.AspNetUsers, "Id", "Email", rezervacija.KorisnikID);
             ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "ID", rezervacija.DanTerminiID);
             ViewBag.OpremaID = new SelectList(db.Opremas, "ID", "Naziv", rezervacija.OpremaID);
+            ViewBag.ProstorijaID = new SelectList(db.Prostorijas, "ID", "Naziv");
+
             return View(rezervacija);
         }
 
@@ -97,7 +117,7 @@ namespace point3ri_Alpha_0._51.Controllers
             ViewBag.KorisnikID = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "Termin");
             ViewBag.OpremaID = new SelectList(db.Opremas.Where(o => o.KategorijaOpremeID == 1), "ID", "Naziv");
-            ViewBag.ProstorijaID = new SelectList(db.Prostorijas.Where(p => p.Naziv.Contains("IMP")), "ID", "Naziv");
+            ViewBag.ProstorijaID = new SelectList(db.Prostorijas.Where(p => !p.Naziv.Contains("IMP")), "ID", "Naziv");
             return View();
         }
 
@@ -156,16 +176,32 @@ namespace point3ri_Alpha_0._51.Controllers
         // POST: Rezervacijas/CreateStolovi
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateStolovi([Bind(Include = "DatumRezervacije,DanTerminiID,OpremaID,ProstorijaID")] Rezervacija rezervacija)
+        public ActionResult CreateStolovi([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int? TrajanjeID, int? DatumRezervacijeID)
         {
 
             rezervacija.KorisnikID = User.Identity.GetUserId();
             rezervacija.VrijemeRezerviranja = DateTime.Now;
             rezervacija.RezervacijaAktivna = true;
-            if (ModelState.IsValid)
+            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID.Value - 1].DatumiRezervacije;
+
+            if (ModelState.IsValid && TrajanjeID != null)
             {
-                db.Rezervacijas.Add(rezervacija);
-                db.SaveChanges();
+                var duration = TrajanjeList[TrajanjeID.Value].BrojZauzetihTermina;
+                if (duration > 1 && rezervacija.DanTerminiID < 145 - duration)
+                {
+                    int start = rezervacija.DanTerminiID.Value;
+                    for (int i = start; i < start + duration; i++)
+                    {
+                        db.Rezervacijas.Add(rezervacija);
+                        db.SaveChanges();
+                        rezervacija.DanTerminiID += 1;
+                    }
+                }
+                else
+                {
+                    db.Rezervacijas.Add(rezervacija);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index", "Home");
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
@@ -173,6 +209,60 @@ namespace point3ri_Alpha_0._51.Controllers
             ViewBag.KorisnikID = new SelectList(db.AspNetUsers, "Id", "Email", rezervacija.KorisnikID);
             ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "ID", rezervacija.DanTerminiID);
             ViewBag.OpremaID = new SelectList(db.Opremas, "ID", "Naziv", rezervacija.OpremaID);
+            ViewBag.ProstorijaID = new SelectList(db.Prostorijas, "ID", "Naziv");
+
+            return View(rezervacija);
+        }
+
+        // GET: Rezervacijas/CreatePrinteri
+        public ActionResult CreatePrinteri()
+        {
+            ViewBag.KorisnikID = new SelectList(db.AspNetUsers, "Id", "Email");
+            ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "Termin");
+            ViewBag.OpremaID = new SelectList(db.Opremas.Where(o => o.KategorijaOpremeID == 2), "ID", "Naziv");
+            ViewBag.ProstorijaID = new SelectList(db.Prostorijas.Where(p => !p.Naziv.Contains("IMP")), "ID", "Naziv");
+
+            return View();
+        }
+
+        // POST: Rezervacijas/CreatePrinteri
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePrinteri([Bind(Include = "DanTerminiID,OpremaID,ProstorijaID,Trajanje")] Rezervacija rezervacija, int? TrajanjeID, int? DatumRezervacijeID)
+        {
+
+            rezervacija.KorisnikID = User.Identity.GetUserId();
+            rezervacija.VrijemeRezerviranja = DateTime.Now;
+            rezervacija.RezervacijaAktivna = true;
+            rezervacija.DatumRezervacije = dvm.DatumiList[DatumRezervacijeID.Value - 1].DatumiRezervacije;
+
+            if (ModelState.IsValid && TrajanjeID != null)
+            {
+                var duration = TrajanjeList[TrajanjeID.Value].BrojZauzetihTermina;
+                if (duration > 1 && rezervacija.DanTerminiID < 145 - duration)
+                {
+                    int start = rezervacija.DanTerminiID.Value;
+                    for (int i = start; i < start + duration; i++)
+                    {
+                        db.Rezervacijas.Add(rezervacija);
+                        db.SaveChanges();
+                        rezervacija.DanTerminiID += 1;
+                    }
+                }
+                else
+                {
+                    db.Rezervacijas.Add(rezervacija);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+
+            ViewBag.KorisnikID = new SelectList(db.AspNetUsers, "Id", "Email", rezervacija.KorisnikID);
+            ViewBag.DanTerminiID = new SelectList(db.DanTerminis, "ID", "ID", rezervacija.DanTerminiID);
+            ViewBag.OpremaID = new SelectList(db.Opremas, "ID", "Naziv", rezervacija.OpremaID);
+            ViewBag.ProstorijaID = new SelectList(db.Prostorijas, "ID", "Naziv");
+
             return View(rezervacija);
         }
 
@@ -318,7 +408,65 @@ namespace point3ri_Alpha_0._51.Controllers
 
             foreach (Prostorija prostorija in db.Prostorijas)
             {
-                pvm.ProstorijaList.Add(prostorija);
+                if (prostorija.Dostupnost == true)
+                {
+                    pvm.ProstorijaList.Add(prostorija);
+                }
+            }
+            return View(pvm);
+        }
+
+        public ActionResult ProstorijaStoloviView()
+        {
+            pvm.ProstorijaList.Clear();
+
+            foreach (Prostorija prostorija in db.Prostorijas)
+            {
+                if (prostorija.Dostupnost == true && PravaProstorija(prostorija, 2) == true)
+                {
+                    pvm.ProstorijaList.Add(prostorija);
+                }
+            }
+            return View(pvm);
+        }
+
+        bool PravaProstorija(Prostorija prostorija, int KategorijaOpreme)
+        {
+            bool value = false;
+            foreach (Oprema oprema in db.Opremas)
+            {
+                if (oprema.ProstorijaID.Value == prostorija.ID && oprema.KategorijaOpremeID == KategorijaOpreme)
+                {
+                    value = true;
+                }
+            }
+            return value;
+        }
+
+        public ActionResult ProstorijaRacunalaView()
+        {
+            pvm.ProstorijaList.Clear();
+
+            foreach (Prostorija prostorija in db.Prostorijas)
+            {
+                if (prostorija.Dostupnost == true && PravaProstorija(prostorija, 1) == true)
+                {
+                    pvm.ProstorijaList.Add(prostorija);
+                }
+            }
+            return View(pvm);
+        }
+
+        public ActionResult ProstorijaPrinteriView()
+        {
+            pvm.ProstorijaList.Clear();
+
+            foreach (Prostorija prostorija in db.Prostorijas)
+            {
+                if (prostorija.Dostupnost == true && PravaProstorija(prostorija, 5) == true)
+                {
+                    pvm.ProstorijaList.Add(prostorija);
+                }
             }
             return View(pvm);
         }
@@ -367,7 +515,7 @@ namespace point3ri_Alpha_0._51.Controllers
 
                 foreach (Rezervacija rezervacija in db.Rezervacijas)
                 {
-                    if (rezervacija.DatumRezervacije == datum && rezervacija.OpremaID == OpremaID)
+                    if (rezervacija.DatumRezervacije == datum && rezervacija.OpremaID == OpremaID && rezervacija.RezervacijaAktivna == true)
                     {
                         dtvm.DanTerminiList.Remove(rezervacija.DanTermini);
                     }
@@ -406,7 +554,7 @@ namespace point3ri_Alpha_0._51.Controllers
                         && rezervacija.OpremaID == OpremaID)
                     {
                         // Trazi dan termine (23 - 120 minuta je maksimalni broj)
-                        if (rezervacija.DanTerminiID >= DanTerminiID && rezervacija.DanTerminiID <= DanTerminiID + 23)
+                        if (rezervacija.DanTerminiID >= DanTerminiID && rezervacija.DanTerminiID <= DanTerminiID + 23 && rezervacija.RezervacijaAktivna == true)
                         {
                             // Trazi slobodne termine do slijedeceg zauzetog
                             razlikaTermina = rezervacija.DanTerminiID.Value - DanTerminiID.Value;
@@ -435,6 +583,13 @@ namespace point3ri_Alpha_0._51.Controllers
                     {
                         brojacZauzetiTermin = razlikaMaxTermin;
                     }
+                }
+
+                int KategorijaOpreme = db.Opremas.Find(OpremaID).KategorijaOpremeID.Value;
+
+                if (KategorijaOpreme != 1)
+                {
+                    brojacZauzetiTermin = 1;
                 }
 
                 // Trajanje lista
