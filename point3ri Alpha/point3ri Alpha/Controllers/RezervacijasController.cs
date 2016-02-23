@@ -29,6 +29,8 @@ namespace point3ri_Alpha_0._51.Controllers
         public static List<Rezervacija> ListaRezervacija = new List<Rezervacija>();
         public ActionResult RezervacijeIndex()
         {
+            ListaRezervacija.Clear();
+
             string KorisnikID = User.Identity.GetUserId();
             DateTime Danas = DateTime.Today;
             foreach (Rezervacija rezervacija in db.Rezervacijas)

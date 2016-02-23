@@ -5,7 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<!-- begin:header -->
+<section id="header" style="background-image: url(/Content/Tema/img/admin.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <blockquote>
+                    <p>Admin page</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>
+<!-- end:header -->
 
 <p>
     @Html.ActionLink("Create New", "Create")

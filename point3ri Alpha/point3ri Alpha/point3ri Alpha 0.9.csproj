@@ -228,6 +228,7 @@
     <Content Include="Content\Tema\css\gallery.prefixed.min.css" />
     <Content Include="Content\Tema\css\gallery.theme.css" />
     <Content Include="Content\Tema\css\normalize.css" />
+    <Content Include="Content\Tema\img\admin.jpg" />
     <Content Include="Content\Tema\img\IMG_0937.jpg" />
     <Content Include="Content\Tema\css\red.css" />
     <Content Include="Content\Tema\css\responsive.css" />
@@ -315,8 +316,8 @@
     <Content Include="Areas\Admin\Views\Rezervacijes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Rezervacijes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Rezervacijes\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\point3ri - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\point3ri - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\VernR - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\VernR - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
