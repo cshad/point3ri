@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <blockquote>
-                    <p>Rezervacije</p>
+                    <p>Rezervacije računala</p>
                 </blockquote>
             </div>
         </div>
@@ -30,7 +30,7 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div @*style="width:30%;margin-left:20px"*@>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DatumRezervacije, "Odaberi datum:", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.DatumRezervacije, "Datum:", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="DatumiContainer">
                             @Html.Action("DatumiView")
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ProstorijaID, "Odaberi prostoriju:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.ProstorijaID, "Prostorija:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="ProstorijaContainer">
                             @Html.Action("ProstorijaRacunalaView")
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.OpremaID, "Odaberi opremu:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.OpremaID, "Oprema:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="OpremaContainer">
                             @Html.Action("OpremaView")
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DanTerminiID, "Odaberi termin:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.DanTerminiID, "Termin:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="DanTerminiContainer">
                             @Html.Action("DanTerminView")
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.Label("Trajanje", "Odaberi trajanje:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Trajanje", "Trajanje:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="TrajanjeContainer">
                             @Html.Action("TrajanjeView")
