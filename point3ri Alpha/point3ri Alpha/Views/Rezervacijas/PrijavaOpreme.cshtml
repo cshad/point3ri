@@ -1,0 +1,81 @@
+﻿@model point3ri_Alpha_0._51.Models.Rezervacija
+
+@{
+    ViewBag.Title = "PrijavaOpreme";
+}
+
+<h2>Prijava opreme</h2>
+
+<h3>Želite li napraviti prijavu opreme?</h3>
+<div>
+    <h4>Prijava opreme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanTermini.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanTermini.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oprema.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oprema.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prostorija.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prostorija.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumRezervacije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumRezervacije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrijemeRezerviranja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrijemeRezerviranja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RezervacijaAktivna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RezervacijaAktivna)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="PrijavaOpreme" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Rezervacijas/RezervacijeIndex")
+        </div>
+    }
+</div>

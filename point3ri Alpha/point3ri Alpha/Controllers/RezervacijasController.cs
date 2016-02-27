@@ -358,6 +358,35 @@ namespace point3ri_Alpha_0._51.Controllers
             return RedirectToAction("RezervacijeIndex");
         }
 
+        // GET: Rezervacijas/PrijavaOpreme
+        public ActionResult PrijavaOpreme(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Rezervacija rezervacija = db.Rezervacijas.Find(id);
+            if (rezervacija == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rezervacija);
+        }
+
+        // POST: Rezervacijas/PrijavaOpreme
+        [HttpPost, ActionName("PrijavaOpreme")]
+        [ValidateAntiForgeryToken]
+        public ActionResult PrijavaOpreme(int id)
+        {
+            PrijavaLosegStanjaOpreme NovaPrijava = new PrijavaLosegStanjaOpreme();
+            NovaPrijava.RezervacijaID = id;
+            NovaPrijava.Rjeseno = false;
+            db.PrijavaLosegStanjaOpremes.Add(NovaPrijava);
+
+            db.SaveChanges();
+            return RedirectToAction("RezervacijeIndex");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

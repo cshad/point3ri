@@ -20,32 +20,34 @@
 </section>
 <!-- end:header -->
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Rezervacija.KorisnikID)
+            @Html.DisplayNameFor(model => model.Rezervacija.AspNetUser.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PronadenoStanje)
+            @Html.DisplayNameFor(model => model.Rezervacija.Prostorija.Naziv)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rezervacija.Oprema.Naziv)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Rezervacija.KorisnikID)
+            @Html.DisplayFor(modelItem => item.Rezervacija.AspNetUser.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PronadenoStanje)
+            @Html.DisplayFor(modelItem => item.Rezervacija.Prostorija.Naziv)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.DisplayFor(modelItem => item.Rezervacija.Oprema.Naziv)
+        </td>
+
+        <td>
+            @Html.ActionLink("Rješeno", "Rjeseno", new { id=item.ID }) |
         </td>
     </tr>
 }
