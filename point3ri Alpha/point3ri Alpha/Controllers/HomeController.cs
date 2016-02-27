@@ -22,11 +22,5 @@ namespace point3ri_Alpha_0._51.Controllers
 
             return View();
         }
-
-        public ActionResult Blog()
-        {
-
-            return View();
-        }
     }
 }

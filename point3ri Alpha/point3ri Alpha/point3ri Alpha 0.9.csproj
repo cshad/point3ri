@@ -229,6 +229,14 @@
     <Content Include="Content\Tema\css\gallery.theme.css" />
     <Content Include="Content\Tema\css\normalize.css" />
     <Content Include="Content\Tema\img\admin.jpg" />
+    <Content Include="Content\Tema\img\matija.jpg" />
+    <Content Include="Content\Tema\img\stipe.jpg" />
+    <Content Include="Content\Tema\img\jure.jpg" />
+    <Content Include="Content\Tema\img\vulje.jpg" />
+    <Content Include="Content\Tema\img\luka.jpg" />
+    <Content Include="Content\Tema\img\ines.jpg" />
+    <Content Include="Content\Tema\img\jan.jpg" />
+    <Content Include="Content\Tema\img\ana.jpg" />
     <Content Include="Content\Tema\img\IMG_0937.jpg" />
     <Content Include="Content\Tema\css\red.css" />
     <Content Include="Content\Tema\css\responsive.css" />
@@ -238,6 +246,7 @@
     <Content Include="Content\Tema\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Tema\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Tema\img\favicon.ico" />
+    <Content Include="Content\Tema\img\dino.jpg" />
     <Content Include="Content\Tema\img\l2.jpg" />
     <Content Include="Content\Tema\img\lph.jpg" />
     <Content Include="Content\Tema\img\map.png" />
@@ -348,7 +357,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
