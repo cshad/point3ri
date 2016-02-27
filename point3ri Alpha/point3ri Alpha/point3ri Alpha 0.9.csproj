@@ -241,6 +241,7 @@
     <Content Include="Content\Tema\img\l2.jpg" />
     <Content Include="Content\Tema\img\lph.jpg" />
     <Content Include="Content\Tema\img\map.png" />
+    <Content Include="Content\Tema\img\news.jpg" />
     <Content Include="Content\Tema\img\password_1.jpg" />
     <Content Include="Content\Tema\img\printerh.jpg" />
     <Content Include="Content\Tema\img\pth1.jpg" />
@@ -347,7 +348,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -392,6 +393,7 @@
     <Content Include="Views\Rezervacijas\ProstorijaRacunalaView.cshtml" />
     <Content Include="Views\Rezervacijas\Create - Copy.cshtml" />
     <Content Include="Views\Rezervacijas\PrijavaOpreme.cshtml" />
+    <Content Include="Views\Home\Obavijesti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
