@@ -238,6 +238,7 @@
     <Content Include="Content\Tema\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Tema\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Tema\img\favicon.ico" />
+    <Content Include="Content\Tema\img\l2.jpg" />
     <Content Include="Content\Tema\img\lph.jpg" />
     <Content Include="Content\Tema\img\map.png" />
     <Content Include="Content\Tema\img\password_1.jpg" />
