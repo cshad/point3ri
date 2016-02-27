@@ -23,8 +23,34 @@ namespace point3ri_Alpha_0._51.Controllers
         public ActionResult Index()
         {
             var rezervacijas = db.Rezervacijas.Include(r => r.AspNetUser).Include(r => r.DanTermini).Include(r => r.Oprema);
+            //BrojSlobodnihRezervacija(1);
             return View(rezervacijas.ToList());
         }
+
+        //public int BrojSlobodnihRezervacija(int KategorijaOpreme)
+        //{
+        //    int brojSlobodnih = 0;
+        //    int Zauzeti = 0;
+
+        //    foreach (Oprema oprema in db.Opremas)
+        //    {
+        //        if (oprema.KategorijaOpreme.ID == KategorijaOpreme)
+        //        {
+        //            brojSlobodnih += 1;
+        //            foreach (Rezervacija rezervacija in db.Rezervacijas)
+        //            {
+        //                if (rezervacija.OpremaID == oprema.ID &&
+        //                    rezervacija.RezervacijaAktivna == true &&
+        //                    rezervacija.DatumRezervacije >= DateTime.Now &&
+        //                    rezervacija.DatumRezervacije < DateTime.Today.AddDays(3))
+        //                {
+        //                    Zauzeti += 1;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return brojSlobodnih - Zauzeti;
+        //}
 
         public static List<Rezervacija> ListaRezervacija = new List<Rezervacija>();
         public ActionResult RezervacijeIndex()

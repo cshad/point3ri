@@ -15,6 +15,7 @@ namespace point3ri_Alpha_0._51.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private point3ri db = new point3ri();
 
         public ManageController()
         {
@@ -318,6 +319,31 @@ namespace point3ri_Alpha_0._51.Controllers
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+        }
+
+        public int BrojSlobodnihRezervacija(int KategorijaOpreme)
+        {
+            int brojSlobodnih = 0;
+            int Zauzeti = 0;
+
+            foreach (Oprema oprema in db.Opremas)
+            {
+                if (oprema.KategorijaOpreme.ID == KategorijaOpreme)
+                {
+                    brojSlobodnih += 1;
+                    foreach (Rezervacija rezervacija in db.Rezervacijas)
+                    {
+                        if (rezervacija.OpremaID == oprema.ID && 
+                            rezervacija.RezervacijaAktivna == true &&
+                            rezervacija.DatumRezervacije >= DateTime.Now &&
+                            rezervacija.DatumRezervacije < DateTime.Now.AddDays(1))
+                        {
+                            Zauzeti += 1;
+                        }
+                    }
+                }
+            }                  
+            return brojSlobodnih;
         }
 
         protected override void Dispose(bool disposing)
