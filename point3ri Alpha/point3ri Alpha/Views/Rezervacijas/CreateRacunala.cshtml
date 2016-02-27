@@ -23,16 +23,16 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div style="margin-left:35%;margin-right:35%;position:center">
+    <div style="margin-left:30%;margin-right:30%">
         <div class="form-horizontal">
             <h3>Rezervacija termina za računala</h3>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div @*style="width:30%;margin-left:20px"*@>
+            <div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DatumRezervacije, "Datum:", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.DatumRezervacije, "Datum", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <div id="DatumiContainer">
+                        <div id="DatumiContainer" style="padding-left:10px">
                             @Html.Action("DatumiView")
                         </div>
                         @Html.ValidationMessageFor(model => model.DatumRezervacije, "", new { @class = "text-danger" })
@@ -40,9 +40,9 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ProstorijaID, "Prostorija:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.ProstorijaID, "Prostorija", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <div id="ProstorijaContainer">
+                        <div id="ProstorijaContainer" style="padding-left:10px">
                             @Html.Action("ProstorijaRacunalaView")
                         </div>
                         @Html.ValidationMessageFor(model => model.ProstorijaID, "", new { @class = "text-danger" })
@@ -50,9 +50,9 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.OpremaID, "Oprema:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.OpremaID, "Oprema", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <div id="OpremaContainer">
+                        <div id="OpremaContainer" style="padding-left:10px">
                             @Html.Action("OpremaView")
                         </div>
                         @Html.ValidationMessageFor(model => model.OpremaID, "", new { @class = "text-danger" })
@@ -60,9 +60,9 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DanTerminiID, "Termin:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.DanTerminiID, "Termin", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <div id="DanTerminiContainer">
+                        <div id="DanTerminiContainer" style="padding-left:10px">
                             @Html.Action("DanTerminView")
                         </div>
                         @Html.ValidationMessageFor(model => model.DanTerminiID, "", new { @class = "text-danger" })
@@ -70,9 +70,9 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.Label("Trajanje", "Trajanje:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.Label("Trajanje", "Trajanje", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <div id="TrajanjeContainer">
+                        <div id="TrajanjeContainer" style="padding-left:10px">
                             @Html.Action("TrajanjeView")
                         </div>
                     </div>
