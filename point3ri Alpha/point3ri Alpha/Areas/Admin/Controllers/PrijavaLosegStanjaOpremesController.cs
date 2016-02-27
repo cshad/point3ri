@@ -17,7 +17,7 @@ namespace point3ri_Alpha_0._51.Areas.Admin.Controllers
         // GET: Admin/PrijavaLosegStanjaOpremes
         public ActionResult Index()
         {
-            var prijavaLosegStanjaOpremes = db.PrijavaLosegStanjaOpremes.Include(p => p.Rezervacija);
+            var prijavaLosegStanjaOpremes = db.PrijavaLosegStanjaOpremes.Include(p => p.Rezervacija).Where(p => p.Rjeseno != true);
             return View(prijavaLosegStanjaOpremes.ToList());
         }
 
@@ -116,6 +116,32 @@ namespace point3ri_Alpha_0._51.Areas.Admin.Controllers
         {
             PrijavaLosegStanjaOpreme prijavaLosegStanjaOpreme = db.PrijavaLosegStanjaOpremes.Find(id);
             db.PrijavaLosegStanjaOpremes.Remove(prijavaLosegStanjaOpreme);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // GET: Admin/PrijavaLosegStanjaOpremes/Rjeseno
+        public ActionResult Rjeseno(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PrijavaLosegStanjaOpreme prijavaLosegStanjaOpreme = db.PrijavaLosegStanjaOpremes.Find(id);
+            if (prijavaLosegStanjaOpreme == null)
+            {
+                return HttpNotFound();
+            }
+            return View(prijavaLosegStanjaOpreme);
+        }
+
+        // POST: Admin/PrijavaLosegStanjaOpremes/Rjeseno
+        [HttpPost, ActionName("Rjeseno")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Rjeseno(int id)
+        {
+            PrijavaLosegStanjaOpreme prijavaLosegStanjaOpreme = db.PrijavaLosegStanjaOpremes.Find(id);
+            prijavaLosegStanjaOpreme.Rjeseno = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

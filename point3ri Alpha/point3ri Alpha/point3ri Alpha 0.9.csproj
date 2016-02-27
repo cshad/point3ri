@@ -317,6 +317,7 @@
     <Content Include="Areas\Admin\Views\Rezervacijes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Rezervacijes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Rezervacijes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Rjeseno.cshtml" />
     <None Include="Properties\PublishProfiles\VernR - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\VernR - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -390,6 +391,7 @@
     <Content Include="Views\Rezervacijas\ProstorijaPrinteriView.cshtml" />
     <Content Include="Views\Rezervacijas\ProstorijaRacunalaView.cshtml" />
     <Content Include="Views\Rezervacijas\Create - Copy.cshtml" />
+    <Content Include="Views\Rezervacijas\PrijavaOpreme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
