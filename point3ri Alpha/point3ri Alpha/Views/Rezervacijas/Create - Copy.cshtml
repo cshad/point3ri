@@ -1,7 +1,7 @@
 ﻿@model point3ri_Alpha_0._51.Models.Rezervacija
 
 @{
-    ViewBag.Title = "CreateRacunala";
+    ViewBag.Title = "Create";
 }
 
 <!-- begin:header -->
@@ -25,11 +25,11 @@
     @Html.AntiForgeryToken()
     <div style="margin-left:35%;margin-right:35%;position:center">
         <div class="form-horizontal">
-            <h3>Rezervacija termina za računala</h3>
+            <h3>Rezervacija termina za opremu</h3>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div @*style="width:30%;margin-left:20px"*@>
-                <div class="form-group">
+                <div class="row">
                     @Html.LabelFor(model => model.DatumRezervacije, "Odaberi datum:", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="DatumiContainer">
@@ -43,7 +43,7 @@
                     @Html.LabelFor(model => model.ProstorijaID, "Odaberi prostoriju:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="ProstorijaContainer">
-                            @Html.Action("ProstorijaRacunalaView")
+                            @Html.Action("ProstorijaView")
                         </div>
                         @Html.ValidationMessageFor(model => model.ProstorijaID, "", new { @class = "text-danger" })
                     </div>

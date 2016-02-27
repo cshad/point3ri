@@ -5,12 +5,12 @@
 }
 
 <!-- begin:header -->
-<section id="header" style="background-image: url(/Content/Tema/img/IMG_0937.jpg);">
+<section id="header" style="background-image: url(/Content/Tema/img/pth1.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <blockquote>
-                    <p>Rezervacije</p>
+                    <p>Rezervacije printera</p>
                 </blockquote>
             </div>
         </div>
@@ -23,74 +23,71 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h3>Rezervacija termina za printere</h3>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div style="width:30%;margin-left:20px">
-            <div class="form-group">
-                @Html.LabelFor(model => model.DatumRezervacije, "Odaberi datum:", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div id="DatumiContainer">
-                        @Html.Action("DatumiView")
+    <div style="margin-left:35%;margin-right:35%;position:center">
+        <div class="form-horizontal">
+            <h3>Rezervacija termina za printere</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div @*style="width:30%;margin-left:20px"*@>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DatumRezervacije, "Odaberi datum:", htmlAttributes: new { @id = "DatumRezervacijeID", @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div id="DatumiContainer">
+                            @Html.Action("DatumiView")
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DatumRezervacije, "", new { @class = "text-danger" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.DatumRezervacije, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProstorijaID, "Odaberi prostoriju:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div id="ProstorijaContainer">
+                            @Html.Action("ProstorijaPrinteriView")
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ProstorijaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OpremaID, "Odaberi opremu:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div id="OpremaContainer">
+                            @Html.Action("OpremaView")
+                        </div>
+                        @Html.ValidationMessageFor(model => model.OpremaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DanTerminiID, "Odaberi termin:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div id="DanTerminiContainer">
+                            @Html.Action("DanTerminView")
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DanTerminiID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Trajanje", "Odaberi trajanje:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div id="TrajanjeContainer">
+                            @Html.Action("TrajanjeView")
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ProstorijaID, "Odaberi prostoriju:", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div id="ProstorijaContainer">
-                        @Html.Action("ProstorijaPrinteriView")
-                    </div>
-                    @Html.ValidationMessageFor(model => model.ProstorijaID, "", new { @class = "text-danger" })
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Rezerviraj" class="btn btn-default" style="float:right"/>
                 </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.OpremaID, "Odaberi opremu:", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div id="OpremaContainer">
-                        @Html.Action("OpremaView")
-                    </div>
-                    @Html.ValidationMessageFor(model => model.OpremaID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DanTerminiID, "Odaberi termin:", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div id="DanTerminiContainer">
-                        @Html.Action("DanTerminView")
-                    </div>
-                    @Html.ValidationMessageFor(model => model.DanTerminiID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.Label("Trajanje", "Odaberi trajanje:", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div id="TrajanjeContainer">
-                        @Html.Action("TrajanjeView")
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index", "Home")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

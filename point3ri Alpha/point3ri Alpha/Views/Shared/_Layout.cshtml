@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse" id="navbar-top">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")"><a href="/Home/Index">Početna</a></li>
-                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Create" ? "active" : "")"><a href="/Rezervacijas/Create">Rezervacije</a></li>
+                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Rezervacijas"? "active" : "")"><a href="/Rezervacijas/Create">Rezervacije</a></li>
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Blog" ? "active" : "")"><a href="/Home/Blog">Obavijesti</a></li>
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "About" ? "active" : "")"><a href="/Home/About">O nama</a></li>
                     <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString() == "Login" ? "active" : "")"><a href="/Account/Login">Prijava</a></li>

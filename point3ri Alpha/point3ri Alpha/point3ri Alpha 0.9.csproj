@@ -388,6 +388,7 @@
     <Content Include="Views\Rezervacijas\ProstorijaStoloviView.cshtml" />
     <Content Include="Views\Rezervacijas\ProstorijaPrinteriView.cshtml" />
     <Content Include="Views\Rezervacijas\ProstorijaRacunalaView.cshtml" />
+    <Content Include="Views\Rezervacijas\Create - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
