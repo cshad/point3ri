@@ -20,31 +20,28 @@
 </section>
 <!-- end:header -->
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AspNetUser.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DanTermini.ID)
+            @Html.DisplayNameFor(model => model.DanTermini.Termin)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Oprema.Naziv)
+            @Html.DisplayName("Oprema")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Prostorija.Naziv)
+            @Html.DisplayName("Prostorija")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DatumRezervacije)
+            @Html.DisplayName("Datum rezervacije")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VrijemeRezerviranja)
+            @Html.DisplayName("Vrijeme rezerviranja")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RezervacijaAktivna)
+            @Html.DisplayName("Rezervacija aktivna")
         </th>
         <th></th>
     </tr>
@@ -55,7 +52,7 @@
             @Html.DisplayFor(modelItem => item.AspNetUser.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DanTermini.ID)
+            @Html.DisplayFor(modelItem => item.DanTermini.Termin)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Oprema.Naziv)
@@ -73,9 +70,8 @@
             @Html.DisplayFor(modelItem => item.RezervacijaAktivna)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Uredi", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

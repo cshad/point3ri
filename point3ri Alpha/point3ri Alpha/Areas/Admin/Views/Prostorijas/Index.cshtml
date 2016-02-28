@@ -21,7 +21,7 @@
 <!-- end:header -->
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj prostoriju", "Create")
 </p>
 <table class="table">
     <tr>
@@ -43,9 +43,8 @@
             @Html.DisplayFor(modelItem => item.Dostupnost)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Uredi", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

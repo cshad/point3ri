@@ -49,7 +49,7 @@ namespace point3ri_Alpha_0._51.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Naziv,KategorijaOpremeID,InventarskiBroj,ProstorijaID")] Oprema oprema)
+        public ActionResult Create([Bind(Include = "Naziv,KategorijaOpremeID,InventarskiBroj,ProstorijaID")] Oprema oprema)
         {
             if (ModelState.IsValid)
             {

@@ -21,12 +21,12 @@
 <!-- end:header -->
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj novu kategoriju opremu", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NazivKategorije)
+            @Html.DisplayName("Naziv kategorije")
         </th>
         <th></th>
     </tr>
@@ -37,9 +37,8 @@
             @Html.DisplayFor(modelItem => item.NazivKategorije)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Uredi", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

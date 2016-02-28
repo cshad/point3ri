@@ -48,7 +48,7 @@ namespace point3ri_Alpha_0._51.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RezervacijaID,PronadenoStanje")] PrijavaLosegStanjaOpreme prijavaLosegStanjaOpreme)
+        public ActionResult Create([Bind(Include = "RezervacijaID,PronadenoStanje")] PrijavaLosegStanjaOpreme prijavaLosegStanjaOpreme)
         {
             if (ModelState.IsValid)
             {

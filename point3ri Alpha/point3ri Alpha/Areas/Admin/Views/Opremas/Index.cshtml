@@ -21,23 +21,22 @@
 <!-- end:header -->
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj opremu", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.KategorijaOpreme.NazivKategorije)
+            @Html.DisplayName("Naziv kategorije")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Prostorija.Naziv)
+            @Html.DisplayName("Prostorija")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Naziv)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InventarskiBroj)
+            @Html.DisplayName("Inventarski broj")
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -55,9 +54,8 @@
             @Html.DisplayFor(modelItem => item.InventarskiBroj)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Uredi", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

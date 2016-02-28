@@ -15,7 +15,7 @@ namespace point3ri_Alpha_0._51.Models
             Rezervacijas = new HashSet<Rezervacija>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [StringLength(255)]

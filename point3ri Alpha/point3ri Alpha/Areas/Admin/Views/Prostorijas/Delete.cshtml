@@ -5,11 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<!-- begin:header -->
+<section id="header" style="background-image: url(/Content/Tema/img/admin.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <blockquote>
+                    <p>Admin page</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>
+<!-- end:header -->
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Želite li izbrisati prostoriju?</h3>
 <div>
-    <h4>Prostorija</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,8 +46,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Index")
         </div>
     }
 </div>
