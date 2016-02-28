@@ -42,6 +42,7 @@ namespace point3ri_Alpha_0._51.Models
 
         [Required]
         [StringLength(256)]
+        [Display(Name = "Korisnièko ime")]
         public string UserName { get; set; }
 
         [StringLength(255)]
