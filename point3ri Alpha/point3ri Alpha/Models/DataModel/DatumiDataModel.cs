@@ -14,5 +14,6 @@ namespace point3ri_Alpha_0._51.Models.DataModel
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DatumiRezervacije { get; set; }
+        public string DatumiRezervacijeString { get; set; }
     }
 }

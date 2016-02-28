@@ -15,7 +15,7 @@ namespace point3ri_Alpha_0._51.Models.ViewModel
         {
             get
             {
-                return new SelectList(DatumiList, "ID", "DatumiRezervacije");
+                return new SelectList(DatumiList, "ID", "DatumiRezervacijeString");
             }
         }
 

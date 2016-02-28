@@ -399,19 +399,19 @@ namespace point3ri_Alpha_0._51.Controllers
         public static List<Models.DataModel.DatumiDataModel> Datumi = new List<Models.DataModel.DatumiDataModel>()
         {
             new Models.DataModel.DatumiDataModel
-            { ID = 1, DatumiRezervacije = DateTime.Today },
+            { ID = 1, DatumiRezervacije = DateTime.Today, DatumiRezervacijeString = DateTime.Today.ToShortDateString() },
             new Models.DataModel.DatumiDataModel
-            { ID = 2, DatumiRezervacije = DateTime.Today.AddDays(1) },
+            { ID = 2, DatumiRezervacije = DateTime.Today.AddDays(1), DatumiRezervacijeString = DateTime.Today.AddDays(1).ToShortDateString() },
             new Models.DataModel.DatumiDataModel
-            { ID = 3, DatumiRezervacije = DateTime.Today.AddDays(2) },
+            { ID = 3, DatumiRezervacije = DateTime.Today.AddDays(2), DatumiRezervacijeString = DateTime.Today.AddDays(2).ToShortDateString() },
             new Models.DataModel.DatumiDataModel
-            { ID = 4, DatumiRezervacije = DateTime.Today.AddDays(3) },
+            { ID = 4, DatumiRezervacije = DateTime.Today.AddDays(3), DatumiRezervacijeString = DateTime.Today.AddDays(3).ToShortDateString() },
             new Models.DataModel.DatumiDataModel
-            { ID = 5, DatumiRezervacije = DateTime.Today.AddDays(4) },
+            { ID = 5, DatumiRezervacije = DateTime.Today.AddDays(4), DatumiRezervacijeString = DateTime.Today.AddDays(4).ToShortDateString() },
             new Models.DataModel.DatumiDataModel
-            { ID = 6, DatumiRezervacije = DateTime.Today.AddDays(5) },
+            { ID = 6, DatumiRezervacije = DateTime.Today.AddDays(5), DatumiRezervacijeString = DateTime.Today.AddDays(5).ToShortDateString() },
             new Models.DataModel.DatumiDataModel
-            { ID = 7, DatumiRezervacije = DateTime.Today.AddDays(6) }
+            { ID = 7, DatumiRezervacije = DateTime.Today.AddDays(6), DatumiRezervacijeString = DateTime.Today.AddDays(6).ToShortDateString() }
         };
 
         public static List<Models.DataModel.TrajanjeDataModel> TrajanjeList = new List<Models.DataModel.TrajanjeDataModel>()
