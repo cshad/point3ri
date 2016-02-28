@@ -13,6 +13,9 @@ namespace point3ri_Alpha_0._51.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.rac = BrojSlobodnihRezervacija(1);
+            ViewBag.sto = BrojSlobodnihRezervacija(2);
+            ViewBag.pri = BrojSlobodnihRezervacija(5);
             return View();
         }
         public ActionResult Obavijesti()
@@ -21,7 +24,6 @@ namespace point3ri_Alpha_0._51.Controllers
         }
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
