@@ -19,10 +19,12 @@ namespace point3ri_Alpha_0._51.Models
         public int ID { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Naziv opreme")]
         public string Naziv { get; set; }
 
         public int? KategorijaOpremeID { get; set; }
 
+        [Display(Name = "Inventarski broj")]
         [StringLength(255)]
         public string InventarskiBroj { get; set; }
 

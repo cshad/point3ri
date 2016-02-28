@@ -21,7 +21,7 @@ namespace point3ri_Alpha_0._51.Models
         [StringLength(128)]
         public string KorisnikID { get; set; }
 
-
+        [Display(Name = "Datum rezervacije")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DatumRezervacije { get; set; }
@@ -35,6 +35,7 @@ namespace point3ri_Alpha_0._51.Models
         [Required]
         public int? ProstorijaID { get; set; }
 
+        [Display(Name = "Vrijeme rezerviranja")]
         public DateTime? VrijemeRezerviranja { get; set; }
 
         public bool? RezervacijaAktivna { get; set; }

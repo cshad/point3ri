@@ -19,6 +19,7 @@ namespace point3ri_Alpha_0._51.Models
         public int ID { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Naziv kategorije")]
         public string NazivKategorije { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
