@@ -4,11 +4,23 @@
     ViewBag.Title = "Otkazi";
 }
 
-<h2>Otkazivanjerezervacije</h2>
+<!-- begin:header -->
+<section id="header" style="background-image: url(/Content/Tema/img/upitnik.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <blockquote>
+                    <p>Otkazivanje rezervacije</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>
+<!-- end:header -->
 
 <h3>Želite li otkazati rezervaciju?</h3>
 <div>
-    <h4>Rezervacija</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,11 +32,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DanTermini.ID)
+            @Html.DisplayNameFor(model => model.DanTermini.Termin)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DanTermini.ID)
+            @Html.DisplayFor(model => model.DanTermini.Termin)
         </dd>
 
         <dt>
@@ -58,23 +70,14 @@
         <dd>
             @Html.DisplayFor(model => model.VrijemeRezerviranja)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RezervacijaAktivna)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RezervacijaAktivna)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Otkazi" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Rezervacijas/RezervacijeIndex")
+            <input type="submit" value="Otkaži" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Rezervacijas/RezervacijeIndex")
         </div>
     }
 </div>

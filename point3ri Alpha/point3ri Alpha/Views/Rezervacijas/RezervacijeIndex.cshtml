@@ -19,7 +19,7 @@
 </section>
 <!-- end:header -->
 
-<table class="table" style="margin-left:5%;width:100%">
+<table class="table" style="margin-left:2%;width:100%;margin-right:5%">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AspNetUser.UserName)
@@ -66,7 +66,7 @@
             @Html.ActionLink("Otkaži", "Otkazi", new { id=item.ID }) |
         </td>
         <td>
-            @Html.ActionLink("Prijava kvara opreme", "PrijavaOpreme", new { id = item.ID }) |
+            @Html.ActionLink("Prijava kvara opreme", "PrijavaOpreme", new { id = item.ID })
         </td>
     </tr>
 }

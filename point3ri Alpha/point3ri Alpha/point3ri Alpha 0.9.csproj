@@ -232,6 +232,9 @@
     <Content Include="Content\Tema\img\matija.jpg" />
     <Content Include="Content\Tema\img\stipe.jpg" />
     <Content Include="Content\Tema\img\jure.jpg" />
+    <Content Include="Content\Tema\img\stjepan.jpg" />
+    <Content Include="Content\Tema\img\upitnik.jpg" />
+    <Content Include="Content\Tema\img\vedran.jpg" />
     <Content Include="Content\Tema\img\vulje.jpg" />
     <Content Include="Content\Tema\img\luka.jpg" />
     <Content Include="Content\Tema\img\ines.jpg" />
@@ -328,6 +331,7 @@
     <Content Include="Areas\Admin\Views\Rezervacijes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Rezervacijes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PrijavaLosegStanjaOpremes\Rjeseno.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\VernR - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\VernR - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
